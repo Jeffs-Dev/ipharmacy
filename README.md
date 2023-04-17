@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Project name...
 
-This project was bootstrapped with Create React App
+This project ...............
 
 ## Available Scripts
 
