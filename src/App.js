@@ -5,7 +5,6 @@ function App() {
   return (
     <>
     <div className="px-4">
-
       <Header />
         <Outlet />
       <h1> Footer </h1>
