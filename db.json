@@ -19,7 +19,7 @@
   "seller": [
     {
       "id": 1,
-      "nome": "Carlo"
+      "name": "Carlo"
     }
   ],
   "clients": [

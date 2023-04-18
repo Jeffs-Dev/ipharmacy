@@ -15,12 +15,6 @@ const Data = () => {
   const { product, client, seller, category } = useContext(DataApiContext);
   const [renderTable, setRenderTable] = useState("Product");
 
-  let categoryName = category.find((item) => {
-    return item.id === 2;
-  });
-
-  console.log(categoryName.description);
-
   return (
     <>
       {product[0].title ? (
@@ -73,9 +67,10 @@ const Data = () => {
 
             <TableBody>
               {product.map((row) => {
+                let { description } = category.find(
+                  (item) => item.id === row.id
+                );
 
-                let {description} = category.find((item) => item.id === row.id);
-                
                 return (
                   <TableRow key={row.id}>
                     <TableCell align="center">{row.id}</TableCell>
@@ -94,17 +89,81 @@ const Data = () => {
       )}
 
       {client !== undefined && renderTable === "Client" ? (
-        <h1> Client Table </h1>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="center"> ID </TableCell>
+                <TableCell align="center">Name&nbsp;</TableCell>
+                <TableCell align="center">Email&nbsp;</TableCell>
+                <TableCell align="center">Age</TableCell>
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {client.map(({ id, name, email, age }) => {
+                return (
+                  <TableRow key={id}>
+                    <TableCell align="center">{id}</TableCell>
+                    <TableCell align="center">{name}</TableCell>
+                    <TableCell align="center">{email}</TableCell>
+                    <TableCell align="center">{age}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       ) : (
         ""
       )}
       {seller !== undefined && renderTable === "Seller" ? (
-        <h1> Seller Table </h1>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="center"> ID </TableCell>
+                <TableCell align="center">Name&nbsp;</TableCell>
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {seller.map(({ id, name }) => {
+                return (
+                  <TableRow key={id}>
+                    <TableCell align="center">{id}</TableCell>
+                    <TableCell align="center">{name}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       ) : (
         ""
       )}
-      {category !== undefined && renderTable === "Cetegory" ? (
-        <h1> Category Table </h1>
+      {category !== undefined && renderTable === "Category" ? (
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="center"> ID </TableCell>
+                <TableCell align="center">Name&nbsp;</TableCell>
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {category.map(({ id, description }) => {
+                return (
+                  <TableRow key={id}>
+                    <TableCell align="center">{id}</TableCell>
+                    <TableCell align="center">{description}</TableCell>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       ) : (
         ""
       )}
