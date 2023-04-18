@@ -1,0 +1,19 @@
+@tailwind components;
+
+
+
+
+@layer components{
+
+    button{
+        @apply hover:underline;
+    }
+
+    nav{
+        @apply flex justify-center mt-8 text-sm;
+    }
+
+    ul{
+        @apply flex gap-2;
+    }
+}

@@ -1,0 +1,29 @@
+@tailwind components;
+
+
+
+@layer components{
+    main{
+        @apply text-center px-20;
+    }
+
+    main h1{
+        @apply text-4xl mb-10 mt-12;
+    }
+
+    main p{
+        @apply px-10;
+    }
+
+    span{
+        @apply text-sky-500 font-semibold;
+    }
+
+    main div{
+        @apply mt-10 flex gap-12 justify-center;
+    }
+
+    .button{
+        @apply bg-gray-200 w-max px-4 py-1 rounded text-gray-800 font-bold hover:bg-gray-800 hover:text-white transition-all delay-75 mt-2;
+    }
+}
