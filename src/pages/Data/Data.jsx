@@ -13,6 +13,7 @@ import { Paper } from "@mui/material";
 
 const Data = () => {
   const { product, client, seller, category } = useContext(DataApiContext);
+  
   const [renderTable, setRenderTable] = useState("Product");
 
   return (
@@ -67,8 +68,8 @@ const Data = () => {
 
             <TableBody>
               {product.map((row) => {
-                let { description } = category.find(
-                  (item) => item.id === row.id
+                let lul = category.find(
+                  (item) => item.id === row.category
                 );
 
                 return (
@@ -77,7 +78,7 @@ const Data = () => {
                     <TableCell align="center">{row.title}</TableCell>
                     <TableCell align="center">{row.description}</TableCell>
                     <TableCell align="center">{row.price}</TableCell>
-                    <TableCell align="center">{description}</TableCell>
+                    <TableCell align="center">{lul.description}</TableCell>
                   </TableRow>
                 );
               })}

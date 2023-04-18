@@ -14,7 +14,18 @@
       "description": "Bruto e sistemático",
       "price": 120000,
       "category": 2
+    },
+
+    {
+      "id": 3,
+      "title": "Fiat Camburão",
+      "description": "Não diga que não te avisei",
+      "price": 67000,
+      "category": 3
     }
+
+
+
   ],
   "seller": [
     {
@@ -39,6 +50,11 @@
     {
       "id": 2,
       "description": "Truck"
+    },
+
+    {
+      "id": 3,
+      "description": "Preto Envenenado"
     }
   ]
 }
