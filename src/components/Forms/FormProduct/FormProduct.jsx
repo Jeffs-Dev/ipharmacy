@@ -5,7 +5,7 @@ const FormProduct = ({ category, setRender, render }) => {
   const [product, setProduct] = useState({
     title: "",
     description: "",
-    price: null,
+    price: 0,
     category: 1,
   });
 

@@ -25,11 +25,6 @@
       "name": "Junior Casas Bahia",
       "location": "New York City",
       "id": 2
-    },
-    {
-      "name": "Almeida",
-      "location": "Moc City",
-      "id": 3
     }
   ],
   "clients": [
@@ -38,12 +33,6 @@
       "name": "Josh",
       "email": "josh@josh.com",
       "age": 32
-    },
-    {
-      "name": "Joshua",
-      "email": "joshua@test.com",
-      "age": "28",
-      "id": 2
     }
   ],
   "category": [
@@ -54,22 +43,6 @@
     {
       "id": 2,
       "description": "Truck"
-    },
-    {
-      "id": 3,
-      "description": "Preto Envenenado"
-    },
-    {
-      "id": 4,
-      "description": "Carro Atômico"
-    },
-    {
-      "description": "Carro Voador",
-      "id": 5
-    },
-    {
-      "description": "Carro que nada",
-      "id": 6
     }
   ]
 }

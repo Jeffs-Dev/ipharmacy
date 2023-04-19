@@ -128,7 +128,9 @@ const Data = () => {
                     <TableCell align="center">{age}</TableCell>
                     <TableCell align="center">
                       <div className="action">
-                        <button> Delete </button>
+                        <button onClick={() => {
+                            deleteRegister("clients", id);
+                          }}> Delete </button>
                         <button>
                           {" "}
                           <Link to={`/data/client/${id}`}> Update </Link>{" "}
@@ -165,7 +167,9 @@ const Data = () => {
                     <TableCell align="center">{location}</TableCell>
                     <TableCell align="center">
                       <div className="action">
-                        <button> Delete </button>
+                        <button onClick={() => {
+                            deleteRegister("seller", id);
+                          }}> Delete </button>
                         <button>
                           {" "}
                           <Link to={`/data/seller/${id}`}> Update </Link>{" "}
@@ -200,7 +204,9 @@ const Data = () => {
                     <TableCell align="center">{description}</TableCell>
                     <TableCell align="center">
                       <div className="action">
-                        <button> Delete </button>
+                        <button onClick={() => {
+                            deleteRegister("category", id);
+                          }} > Delete </button>
                         <button>
                           {" "}
                           <Link to={`/data/category/${id}`}> Update </Link>{" "}

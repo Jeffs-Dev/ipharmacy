@@ -2,7 +2,6 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 
-
 export const DataApiContext = createContext();
 
 const DataApiProvider = ({ children }) => {
@@ -14,8 +13,6 @@ const DataApiProvider = ({ children }) => {
   const [render, setRender] = useState(false);
 
   let navigate = useNavigate();
-
- 
 
   useEffect(() => {
     axios
@@ -33,23 +30,42 @@ const DataApiProvider = ({ children }) => {
     axios
       .get(`http://localhost:3001/seller`)
       .then((res) => setSeller(res.data));
-
-
   }, [render]);
 
+  const deleteRegister = async (endpoint, id) => {
+    if (endpoint === "category") {
+      let categoryID = category.map((category) => {
+        return category.id;
+      });
 
-  const deleteRegister = async (endpoint, id) =>{
+      let data = await axios
+        .get(`http://localhost:3001/${endpoint}/${id}`)
+        .then((res) => res.data);
 
-    await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
-    alert('Produto deletado com sucesso! ');
-    setRender(!render);
-    navigate('/');
-       
-  } 
+      console.log(data.id);
+
+      let verify = await product.some((item) => {
+        return item.category === data.id;
+      });
+
+      if (verify) {
+        alert("Não pode deletar uma categoria que está sendo utilizada");
+        return;
+      } else {
+        await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
+
+        alert("Deletado com sucesso! ");
+        setRender(!render);
+        navigate("/");
+      }
+    }
+  };
 
   return (
     <>
-      <DataApiContext.Provider value={{ product, seller, client, category, setRender, deleteRegister }}>
+      <DataApiContext.Provider
+        value={{ product, seller, client, category, setRender, deleteRegister }}
+      >
         {children}
       </DataApiContext.Provider>
     </>
