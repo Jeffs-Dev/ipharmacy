@@ -9,51 +9,44 @@ import FormCategory from '../../components/Forms/FormCategory/FormCategory';
 const Register = () => {
 
     const [renderForm, setRenderForm] = useState('Product');
-
     const {category, setRender, render} = useContext(DataApiContext);
-
-
-
-    
-
-
+ 
   return (
     <>
         <nav>
           <ul>
             <li>
               <button onClick={({target}) => setRenderForm(target.innerText)}>
-                {" "}
-                Product{" "}
+                Product
               </button>
             </li>
             <li>
               <button onClick={({target}) => setRenderForm(target.innerText)}>
-                {" "}
-                Client{" "}
+                
+                Client
               </button>
             </li>
             <li>
               <button onClick={({target}) => setRenderForm(target.innerText)}>
-                {" "}
-                Seller{" "}
+                Seller
               </button>
             </li>
             <li>
               <button onClick={({target}) => setRenderForm(target.innerText)}>
-                {" "}
-                Category{" "}
+                
+                Category
               </button>
             </li>
           </ul>
         </nav>
 
             
-            {category.length >= 1 && category !== undefined && renderForm === 'Product' ? (
-              
-              
-               <FormProduct category = {category ? category : ''} setRender={setRender} render={render}/> ) : ''}
-
+            {
+              category.length >= 1 && category !== undefined && renderForm === 'Product' ?
+              (
+                <FormProduct category = {category ? category : ''} setRender={setRender} render={render}/>
+              ) : ''
+            }
 
 
             {renderForm === 'Client' ? <FormClient setRender={setRender} render={render}/> : ''}
