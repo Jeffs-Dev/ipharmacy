@@ -4,6 +4,7 @@ import FormProduct from '../../components/Forms/FormProduct/FormProduct';
 import { DataApiContext } from '../../context/DataApi';
 import FormClient from '../../components/Forms/FormClient/FormClient';
 import FormSeller from '../../components/Forms/FormSeller/FormSeller';
+import FormCategory from '../../components/Forms/FormCategory/FormCategory';
 
 const Register = () => {
 
@@ -51,7 +52,7 @@ const Register = () => {
 
             {renderForm === 'Seller' ? <FormSeller setRender={setRender} render={render} /> : ''}
             
-            {renderForm === 'Category' ? <h1> Form Category</h1> : ''}
+            {renderForm === 'Category' ? <FormCategory setRender={setRender} render={render}/> : ''}
 
 
     </>
