@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 export const DataApiContext = createContext();
 
@@ -11,6 +13,9 @@ const DataApiProvider = ({ children }) => {
 
   const [render, setRender] = useState(false);
 
+  let navigate = useNavigate();
+
+ 
 
   useEffect(() => {
     axios
@@ -33,9 +38,22 @@ const DataApiProvider = ({ children }) => {
   }, [render]);
 
 
+  const deleteRegister = async (endpoint, id) =>{
+
+    await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
+    alert('Produto deletado com sucesso! ');
+    setRender(!render);
+    navigate('/');
+       
+  } 
+
+
+
+
+
   return (
     <>
-      <DataApiContext.Provider value={{ product, seller, client, category, setRender }}>
+      <DataApiContext.Provider value={{ product, seller, client, category, setRender, deleteRegister }}>
         {children}
       </DataApiContext.Provider>
     </>

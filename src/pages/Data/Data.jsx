@@ -10,11 +10,12 @@ import {
   TableRow,
 } from "@mui/material";
 import { Paper } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Data = () => {
-  const { product, client, seller, category } = useContext(DataApiContext);
-  
+  const { product, client, seller, category, deleteRegister } =
+    useContext(DataApiContext);
+
   const [renderTable, setRenderTable] = useState("Product");
 
   return (
@@ -70,9 +71,7 @@ const Data = () => {
 
             <TableBody>
               {product.map((row) => {
-                let lul = category.find(
-                  (item) => item.id === row.category
-                );
+                let lul = category.find((item) => item.id === row.category);
 
                 return (
                   <TableRow key={row.id}>
@@ -82,11 +81,19 @@ const Data = () => {
                     <TableCell align="center">{row.price}</TableCell>
                     <TableCell align="center">{lul.description}</TableCell>
                     <TableCell align="center">
-                    <div className="action">
-                    <button> Delete </button>
-                    <button>  <Link to={`/data/product/${row.id}`}> Update </Link> </button>
-                    </div>
-                    
+                      <div className="action">
+                        <button
+                          onClick={() => {
+                            deleteRegister("products", row.id);
+                          }}
+                        >
+                          Delete
+                        </button>
+
+                        <button>
+                          <Link to={`/data/product/${row.id}`}>Update</Link>
+                        </button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 );
@@ -120,11 +127,13 @@ const Data = () => {
                     <TableCell align="center">{email}</TableCell>
                     <TableCell align="center">{age}</TableCell>
                     <TableCell align="center">
-                    <div className="action">
-                    <button> Delete </button>
-                    <button>  <Link to={`/data/client/${id}`}> Update </Link> </button>
-                    </div>
-                    
+                      <div className="action">
+                        <button> Delete </button>
+                        <button>
+                          {" "}
+                          <Link to={`/data/client/${id}`}> Update </Link>{" "}
+                        </button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 );
@@ -155,11 +164,13 @@ const Data = () => {
                     <TableCell align="center">{name}</TableCell>
                     <TableCell align="center">{location}</TableCell>
                     <TableCell align="center">
-                    <div className="action">
-                    <button> Delete </button>
-                    <button>  <Link to={`/data/seller/${id}`}> Update </Link> </button>
-                    </div>
-                    
+                      <div className="action">
+                        <button> Delete </button>
+                        <button>
+                          {" "}
+                          <Link to={`/data/seller/${id}`}> Update </Link>{" "}
+                        </button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 );
@@ -188,11 +199,13 @@ const Data = () => {
                     <TableCell align="center">{id}</TableCell>
                     <TableCell align="center">{description}</TableCell>
                     <TableCell align="center">
-                    <div className="action">
-                    <button> Delete </button>
-                    <button>  <Link to={`/data/category/${id}`}> Update </Link> </button>
-                    </div>
-                    
+                      <div className="action">
+                        <button> Delete </button>
+                        <button>
+                          {" "}
+                          <Link to={`/data/category/${id}`}> Update </Link>{" "}
+                        </button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 );
