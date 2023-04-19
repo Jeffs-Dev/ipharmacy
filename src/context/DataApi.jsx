@@ -42,8 +42,6 @@ const DataApiProvider = ({ children }) => {
         .get(`http://localhost:3001/${endpoint}/${id}`)
         .then((res) => res.data);
 
-      console.log(data.id);
-
       let verify = await product.some((item) => {
         return item.category === data.id;
       });
@@ -58,7 +56,19 @@ const DataApiProvider = ({ children }) => {
         setRender(!render);
         navigate("/");
       }
+    } else{
+
+      await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
+
+      alert("Deletado com sucesso! ");
+      setRender(!render);
+      navigate("/");
     }
+
+
+
+
+
   };
 
   return (

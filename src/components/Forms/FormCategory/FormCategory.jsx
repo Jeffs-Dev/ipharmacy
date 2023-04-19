@@ -6,16 +6,16 @@ const FormCategory = ({ setRender, render }) => {
     description: "",
   });
 
-  const postCategory = (e) => {
-    e.preventDefault();
+  const postCategory = async (e) => {
+     e.preventDefault();
 
-    axios.post(`http://localhost:3001/category`, category);
+    await axios.post(`http://localhost:3001/category`, category);
+    await setRender(!render);
 
     setCategory({
       description: "",
     });
 
-    setRender(!render);
   };
 
   function setCategoryInputs({ target }) {

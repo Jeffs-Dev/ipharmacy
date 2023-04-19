@@ -5,8 +5,8 @@ const FormProduct = ({ category, setRender, render }) => {
   const [product, setProduct] = useState({
     title: "",
     description: "",
-    price: 0,
-    category: 1,
+    price: undefined,
+    category: undefined,
   });
 
   const postProduct = (e) => {
@@ -18,10 +18,9 @@ const FormProduct = ({ category, setRender, render }) => {
     setProduct({
       title: "",
       description: "",
-      price: "",
+      price: undefined,
       category: 1,
     });
-    
   };
 
   function setProductInputs({ target }) {

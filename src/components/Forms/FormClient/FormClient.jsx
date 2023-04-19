@@ -5,7 +5,7 @@ const FormClient = ({ setRender, render }) => {
   const [client, setClient] = useState({
     name: "",
     email: "",
-    age: 0,
+    age: undefined,
   });
 
   const postClient = (e) => {

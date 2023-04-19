@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@mui/material";
 import { Paper } from "@mui/material";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Data = () => {
   const { product, client, seller, category, deleteRegister } =
@@ -20,38 +20,31 @@ const Data = () => {
 
   return (
     <>
-      {product[0].title ? (
-        <nav>
-          <ul>
-            <li>
-              <button onClick={(e) => setRenderTable(e.target.innerText)}>
-                {" "}
-                Product{" "}
-              </button>
-            </li>
-            <li>
-              <button onClick={(e) => setRenderTable(e.target.innerText)}>
-                {" "}
-                Client{" "}
-              </button>
-            </li>
-            <li>
-              <button onClick={(e) => setRenderTable(e.target.innerText)}>
-                {" "}
-                Seller{" "}
-              </button>
-            </li>
-            <li>
-              <button onClick={(e) => setRenderTable(e.target.innerText)}>
-                {" "}
-                Category{" "}
-              </button>
-            </li>
-          </ul>
-        </nav>
-      ) : (
-        "Loading..."
-      )}
+      <nav>
+        <ul>
+          <li>
+            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+              Product
+            </button>
+          </li>
+          <li>
+            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+              Client
+            </button>
+          </li>
+
+          <li>
+            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+              Seller
+            </button>
+          </li>
+          <li>
+            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+              Category
+            </button>
+          </li>
+        </ul>
+      </nav>
 
       {product !== undefined &&
       renderTable === "Product" &&
@@ -128,9 +121,14 @@ const Data = () => {
                     <TableCell align="center">{age}</TableCell>
                     <TableCell align="center">
                       <div className="action">
-                        <button onClick={() => {
+                        <button
+                          onClick={() => {
                             deleteRegister("clients", id);
-                          }}> Delete </button>
+                          }}
+                        >
+                          {" "}
+                          Delete{" "}
+                        </button>
                         <button>
                           {" "}
                           <Link to={`/data/client/${id}`}> Update </Link>{" "}
@@ -167,9 +165,14 @@ const Data = () => {
                     <TableCell align="center">{location}</TableCell>
                     <TableCell align="center">
                       <div className="action">
-                        <button onClick={() => {
+                        <button
+                          onClick={() => {
                             deleteRegister("seller", id);
-                          }}> Delete </button>
+                          }}
+                        >
+                          {" "}
+                          Delete{" "}
+                        </button>
                         <button>
                           {" "}
                           <Link to={`/data/seller/${id}`}> Update </Link>{" "}
@@ -204,9 +207,14 @@ const Data = () => {
                     <TableCell align="center">{description}</TableCell>
                     <TableCell align="center">
                       <div className="action">
-                        <button onClick={() => {
+                        <button
+                          onClick={() => {
                             deleteRegister("category", id);
-                          }} > Delete </button>
+                          }}
+                        >
+                          {" "}
+                          Delete{" "}
+                        </button>
                         <button>
                           {" "}
                           <Link to={`/data/category/${id}`}> Update </Link>{" "}

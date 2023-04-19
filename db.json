@@ -1,48 +1,6 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "title": "Chevrolet Speed",
-      "description": "Confortável, rápido e econômico",
-      "price": 40000,
-      "category": 1
-    },
-    {
-      "title": "Ford Ka",
-      "description": "Alguma descrição",
-      "price": "45000",
-      "category": 1,
-      "id": 2
-    }
-  ],
-  "seller": [
-    {
-      "id": 1,
-      "name": "Carlo",
-      "location": "Washington, D.C."
-    },
-    {
-      "name": "Junior Casas Bahia",
-      "location": "New York City",
-      "id": 2
-    }
-  ],
-  "clients": [
-    {
-      "id": 1,
-      "name": "Josh",
-      "email": "josh@josh.com",
-      "age": 32
-    }
-  ],
-  "category": [
-    {
-      "id": 1,
-      "description": "Sedã"
-    },
-    {
-      "id": 2,
-      "description": "Truck"
-    }
-  ]
+  "products": [],
+  "seller": [],
+  "clients": [],
+  "category": []
 }

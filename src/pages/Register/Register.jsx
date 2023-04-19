@@ -12,6 +12,8 @@ const Register = () => {
 
     const {category, setRender, render} = useContext(DataApiContext);
 
+
+
     
 
 
@@ -46,7 +48,13 @@ const Register = () => {
           </ul>
         </nav>
 
-            {category !== undefined && renderForm === 'Product' ? ( <FormProduct category = {category ? category : ''} setRender={setRender} render={render}/> ) : ''}
+            
+            {category.length >= 1 && category !== undefined && renderForm === 'Product' ? (
+              
+              
+               <FormProduct category = {category ? category : ''} setRender={setRender} render={render}/> ) : ''}
+
+
 
             {renderForm === 'Client' ? <FormClient setRender={setRender} render={render}/> : ''}
 
