@@ -10,10 +10,13 @@
     }
 
     nav{
-        @apply flex justify-center mt-8 text-sm;
+        @apply flex justify-center mt-8 text-sm mb-10;
     }
 
     ul{
         @apply flex gap-2;
+    }
+    .action{
+        @apply flex gap-2 justify-center;
     }
 }

@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "@mui/material";
 import { Paper } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Data = () => {
   const { product, client, seller, category } = useContext(DataApiContext);
@@ -63,6 +64,7 @@ const Data = () => {
                 <TableCell align="center">Description&nbsp;</TableCell>
                 <TableCell align="center">Price</TableCell>
                 <TableCell align="center">Category</TableCell>
+                <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
 
@@ -79,6 +81,13 @@ const Data = () => {
                     <TableCell align="center">{row.description}</TableCell>
                     <TableCell align="center">{row.price}</TableCell>
                     <TableCell align="center">{lul.description}</TableCell>
+                    <TableCell align="center">
+                    <div className="action">
+                    <button> Delete </button>
+                    <button>  <Link to={`/data/product/${row.id}`}> Update </Link> </button>
+                    </div>
+                    
+                    </TableCell>
                   </TableRow>
                 );
               })}
@@ -98,6 +107,7 @@ const Data = () => {
                 <TableCell align="center">Name&nbsp;</TableCell>
                 <TableCell align="center">Email&nbsp;</TableCell>
                 <TableCell align="center">Age</TableCell>
+                <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
 
@@ -109,6 +119,13 @@ const Data = () => {
                     <TableCell align="center">{name}</TableCell>
                     <TableCell align="center">{email}</TableCell>
                     <TableCell align="center">{age}</TableCell>
+                    <TableCell align="center">
+                    <div className="action">
+                    <button> Delete </button>
+                    <button>  <Link to={`/data/client/${id}`}> Update </Link> </button>
+                    </div>
+                    
+                    </TableCell>
                   </TableRow>
                 );
               })}
@@ -125,6 +142,7 @@ const Data = () => {
               <TableRow>
                 <TableCell align="center"> ID </TableCell>
                 <TableCell align="center">Name&nbsp;</TableCell>
+                <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
 
@@ -134,6 +152,13 @@ const Data = () => {
                   <TableRow key={id}>
                     <TableCell align="center">{id}</TableCell>
                     <TableCell align="center">{name}</TableCell>
+                    <TableCell align="center">
+                    <div className="action">
+                    <button> Delete </button>
+                    <button>  <Link to={`/data/seller/${id}`}> Update </Link> </button>
+                    </div>
+                    
+                    </TableCell>
                   </TableRow>
                 );
               })}
@@ -150,6 +175,7 @@ const Data = () => {
               <TableRow>
                 <TableCell align="center"> ID </TableCell>
                 <TableCell align="center">Name&nbsp;</TableCell>
+                <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
 
@@ -159,6 +185,13 @@ const Data = () => {
                   <TableRow key={id}>
                     <TableCell align="center">{id}</TableCell>
                     <TableCell align="center">{description}</TableCell>
+                    <TableCell align="center">
+                    <div className="action">
+                    <button> Delete </button>
+                    <button>  <Link to={`/data/category/${id}`}> Update </Link> </button>
+                    </div>
+                    
+                    </TableCell>
                   </TableRow>
                 );
               })}
