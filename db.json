@@ -6,6 +6,13 @@
       "description": "Confortável, rápido e econômico",
       "price": 40000,
       "category": 1
+    },
+    {
+      "title": "Ford Ka",
+      "description": "Alguma descrição",
+      "price": "45000",
+      "category": 1,
+      "id": 2
     }
   ],
   "seller": [
@@ -18,6 +25,11 @@
       "name": "Junior Casas Bahia",
       "location": "New York City",
       "id": 2
+    },
+    {
+      "name": "Almeida",
+      "location": "Moc City",
+      "id": 3
     }
   ],
   "clients": [
@@ -50,6 +62,14 @@
     {
       "id": 4,
       "description": "Carro Atômico"
+    },
+    {
+      "description": "Carro Voador",
+      "id": 5
+    },
+    {
+      "description": "Carro que nada",
+      "id": 6
     }
   ]
 }

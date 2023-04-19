@@ -12,7 +12,16 @@ const FormProduct = ({ category, setRender, render }) => {
   const postProduct = (e) => {
     e.preventDefault();
     axios.post(`http://localhost:3001/products`, product);
+
     setRender(!render);
+
+    setProduct({
+      title: "",
+      description: "",
+      price: "",
+      category: 1,
+    });
+    
   };
 
   function setProductInputs({ target }) {
@@ -36,6 +45,7 @@ const FormProduct = ({ category, setRender, render }) => {
           <label> Title </label>
 
           <input
+            value={product.title}
             id="title"
             type="text"
             required={true}
@@ -43,6 +53,7 @@ const FormProduct = ({ category, setRender, render }) => {
           />
           <label> Description </label>
           <textarea
+            value={product.description}
             id="description"
             type="text"
             required={true}
@@ -51,6 +62,7 @@ const FormProduct = ({ category, setRender, render }) => {
 
           <label> Price </label>
           <input
+            value={product.price}
             id="price"
             type="number"
             required={true}

@@ -14,6 +14,11 @@ const FormSeller = ({setRender, render}) => {
         axios.post(`http://localhost:3001/seller`, seller);
         setRender(!render);
 
+        setSeller({
+          name: "",
+          location: ""
+        })
+
       };
     
       function setSellerInputs({ target }) {
@@ -30,6 +35,7 @@ const FormSeller = ({setRender, render}) => {
               <label> Name </label>
     
               <input
+                value={seller.name}
                 id="name"
                 type="text"
                 required={true}
@@ -37,6 +43,7 @@ const FormSeller = ({setRender, render}) => {
               />
               <label> Location </label>
               <input
+                value={seller.location}
                 id="location"
                 type="text"
                 required={true}

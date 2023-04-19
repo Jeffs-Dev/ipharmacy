@@ -47,10 +47,6 @@ const DataApiProvider = ({ children }) => {
        
   } 
 
-
-
-
-
   return (
     <>
       <DataApiContext.Provider value={{ product, seller, client, category, setRender, deleteRegister }}>
