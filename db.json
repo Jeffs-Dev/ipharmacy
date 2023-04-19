@@ -7,7 +7,6 @@
       "price": 40000,
       "category": 1
     },
-
     {
       "id": 2,
       "title": "Ford Truck",
@@ -15,17 +14,20 @@
       "price": 120000,
       "category": 2
     },
-
     {
       "id": 3,
       "title": "Fiat Camburão",
       "description": "Não diga que não te avisei",
       "price": 67000,
       "category": 3
+    },
+    {
+      "title": "Fuscão Preto",
+      "description": "Melhor carro, até voa!",
+      "price": "8000000",
+      "category": 4,
+      "id": 4
     }
-
-
-
   ],
   "seller": [
     {
@@ -46,15 +48,17 @@
       "id": 1,
       "description": "Sedã"
     },
-
     {
       "id": 2,
       "description": "Truck"
     },
-
     {
       "id": 3,
       "description": "Preto Envenenado"
+    },
+    {
+      "id": 4,
+      "description": "Carro Atômico"
     }
   ]
 }
