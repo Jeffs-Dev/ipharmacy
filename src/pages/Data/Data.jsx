@@ -142,16 +142,18 @@ const Data = () => {
               <TableRow>
                 <TableCell align="center"> ID </TableCell>
                 <TableCell align="center">Name&nbsp;</TableCell>
+                <TableCell align="center">Location&nbsp;</TableCell>
                 <TableCell align="center">Action</TableCell>
               </TableRow>
             </TableHead>
 
             <TableBody>
-              {seller.map(({ id, name }) => {
+              {seller.map(({ id, name, location }) => {
                 return (
                   <TableRow key={id}>
                     <TableCell align="center">{id}</TableCell>
                     <TableCell align="center">{name}</TableCell>
+                    <TableCell align="center">{location}</TableCell>
                     <TableCell align="center">
                     <div className="action">
                     <button> Delete </button>

@@ -32,7 +32,13 @@
   "seller": [
     {
       "id": 1,
-      "name": "Carlo"
+      "name": "Carlo",
+      "location": "Washington, D.C."
+    },
+    {
+      "name": "Junior Casas Bahia",
+      "location": "New York City",
+      "id": 2
     }
   ],
   "clients": [
