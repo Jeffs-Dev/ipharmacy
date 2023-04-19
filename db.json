@@ -41,6 +41,12 @@
       "name": "Josh",
       "email": "josh@josh.com",
       "age": 32
+    },
+    {
+      "name": "Joshua",
+      "email": "joshua@test.com",
+      "age": "28",
+      "id": 2
     }
   ],
   "category": [

@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import './Register.css';
 import FormProduct from '../../components/Forms/FormProduct/FormProduct';
 import { DataApiContext } from '../../context/DataApi';
+import FormClient from '../../components/Forms/FormClient/FormClient';
 
 const Register = () => {
 
@@ -45,7 +46,7 @@ const Register = () => {
 
             {category !== undefined && renderForm === 'Product' ? ( <FormProduct category = {category ? category : ''} setRender={setRender} render={render}/> ) : ''}
 
-            {renderForm === 'Client' ? <h1> Form Client</h1> : ''}
+            {renderForm === 'Client' ? <FormClient setRender={setRender} render={render}/> : ''}
 
             {renderForm === 'Seller' ? <h1> Form Seller</h1> : ''}
             
