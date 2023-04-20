@@ -24,30 +24,50 @@ const Data = () => {
         <ul>
           <li>
             <button
-             style={renderTable==='Product' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
-            onClick={(e) => setRenderTable(e.target.innerText)}>
+              style={
+                renderTable === "Product"
+                  ? { textDecoration: "underline" }
+                  : { textDecoration: "none" }
+              }
+              onClick={(e) => setRenderTable(e.target.innerText)}
+            >
               Product
             </button>
           </li>
           <li>
             <button
-            style={renderTable==='Client' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
-            onClick={(e) => setRenderTable(e.target.innerText)}>
+              style={
+                renderTable === "Client"
+                  ? { textDecoration: "underline" }
+                  : { textDecoration: "none" }
+              }
+              onClick={(e) => setRenderTable(e.target.innerText)}
+            >
               Client
             </button>
           </li>
 
           <li>
             <button
-            style={renderTable==='Seller' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
-            onClick={(e) => setRenderTable(e.target.innerText)}>
+              style={
+                renderTable === "Seller"
+                  ? { textDecoration: "underline" }
+                  : { textDecoration: "none" }
+              }
+              onClick={(e) => setRenderTable(e.target.innerText)}
+            >
               Seller
             </button>
           </li>
           <li>
             <button
-            style={renderTable==='Category' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
-            onClick={(e) => setRenderTable(e.target.innerText)}>
+              style={
+                renderTable === "Category"
+                  ? { textDecoration: "underline" }
+                  : { textDecoration: "none" }
+              }
+              onClick={(e) => setRenderTable(e.target.innerText)}
+            >
               Category
             </button>
           </li>
