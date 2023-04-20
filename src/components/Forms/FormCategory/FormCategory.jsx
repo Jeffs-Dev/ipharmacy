@@ -1,20 +1,23 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataApiContext } from "../../../context/DataApi";
 
-const FormCategory = ({ setRender, render }) => {
+const FormCategory = () => {
+  const { setRender, render } = useContext(DataApiContext);
+
   const [category, setCategory] = useState({
     description: "",
   });
 
   const postCategory = async (e) => {
-     e.preventDefault();
+    e.preventDefault();
 
     await axios.post(`http://localhost:3001/category`, category);
-    
+
     setCategory({
       description: "",
     });
-    
+
     setRender(!render);
   };
 

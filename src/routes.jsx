@@ -7,6 +7,10 @@ import ProductTable from "./components/Tables/ProductTable/ProductTable";
 import ClientTable from "./components/Tables/ClientTable/ClientTable";
 import SellerTable from "./components/Tables/SellerTable/SellerTable";
 import CategoryTable from "./components/Tables/CategoryTable/CategoryTable";
+import FormProduct from "./components/Forms/FormProduct/FormProduct";
+import FormClient from "./components/Forms/FormClient/FormClient";
+import FormSeller from "./components/Forms/FormSeller/FormSeller";
+import FormCategory from "./components/Forms/FormCategory/FormCategory";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +47,25 @@ const router = createBrowserRouter([
 
       {
         path: "/register",
-        element: <Register />
+        element: <Register />,
+        children: [
+          {
+            path: '/register/product',
+            element: <FormProduct />
+          },
+          {
+            path: '/register/client',
+            element: <FormClient />
+          },
+          {
+            path: '/register/seller',
+            element: <FormSeller />
+          },
+          {
+            path: '/register/category',
+            element: <FormCategory/>
+          }
+        ]
       },
 
 

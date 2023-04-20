@@ -2,5 +2,10 @@
   "products": [],
   "seller": [],
   "clients": [],
-  "category": []
+  "category": [
+    {
+      "description": "Carro Voador",
+      "id": 1
+    }
+  ]
 }

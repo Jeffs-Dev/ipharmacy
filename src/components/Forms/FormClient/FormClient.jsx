@@ -1,7 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { DataApiContext } from "../../../context/DataApi";
 
-const FormClient = ({ setRender, render }) => {
+const FormClient = () => {
+  const { setRender, render } = useContext(DataApiContext);
+
   const [client, setClient] = useState({
     name: "",
     email: "",
@@ -16,7 +19,7 @@ const FormClient = ({ setRender, render }) => {
     setClient({
       name: "",
       email: "",
-      age: '',
+      age: "",
     });
   };
 

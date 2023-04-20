@@ -1,15 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { DataApiContext } from "../../../context/DataApi";
 
-const FormProduct = ({ category, setRender, render }) => {
+const FormProduct = () => {
+  const { category, setRender, render } = useContext(DataApiContext);
+
   const [product, setProduct] = useState({
     title: "",
     description: "",
     price: undefined,
     category: undefined,
   });
-
-
 
   const postProduct = (e) => {
     e.preventDefault();
@@ -41,52 +42,50 @@ const FormProduct = ({ category, setRender, render }) => {
 
   return (
     <>
-    {}
+      {category.length >= 1 && category !== undefined ? (
+        <div className="container">
+          <form onSubmit={postProduct}>
+            <label> Title </label>
 
+            <input
+              value={product.title}
+              id="title"
+              type="text"
+              required={true}
+              onChange={setProductInputs}
+            />
+            <label> Description </label>
+            <textarea
+              value={product.description}
+              id="description"
+              type="text"
+              required={true}
+              onChange={setProductInputs}
+            />
 
-      <div className="container">
-        <form onSubmit={postProduct}>
-          <label> Title </label>
+            <label> Price </label>
+            <input
+              value={product.price}
+              id="price"
+              type="number"
+              required={true}
+              onChange={setProductInputs}
+            />
 
-          <input
-            value={product.title}
-            id="title"
-            type="text"
-            required={true}
-            onChange={setProductInputs}
-          />
-          <label> Description </label>
-          <textarea
-            value={product.description}
-            id="description"
-            type="text"
-            required={true}
-            onChange={setProductInputs}
-          />
+            <label> Category </label>
 
-          <label> Price </label>
-          <input
-            value={product.price}
-            id="price"
-            type="number"
-            required={true}
-            onChange={setProductInputs}
-          />
+            <select id="category" onChange={setProductInputs}>
+              {category.map((item) => {
+                return <option key={item.id}> {item.description} </option>;
+              })}
+            </select>
 
-          <label> Category </label>
-
-          <select id="category" onChange={setProductInputs}>
-            {category.map((item) => {
-              return <option key={item.id}> {item.description} </option>;
-            })}
-          </select>
-
-          <button> Send </button>
-        </form>
-      </div>
-
-
-
+            <button> Send </button>
+          </form>
+        </div>
+      ) : (
+        "navigate to category share"
+      )}
     </>
   );
 };
