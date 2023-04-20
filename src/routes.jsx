@@ -3,6 +3,10 @@ import App from "./App";
 import Home from "./pages/Home/Home";
 import Data from "./pages/Data/Data";
 import Register from "./pages/Register/Register";
+import ProductTable from "./components/Tables/ProductTable/ProductTable";
+import ClientTable from "./components/Tables/ClientTable/ClientTable";
+import SellerTable from "./components/Tables/SellerTable/SellerTable";
+import CategoryTable from "./components/Tables/CategoryTable/CategoryTable";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +20,25 @@ const router = createBrowserRouter([
 
       {
         path: "/data",
-        element: <Data />
+        element: <Data />,
+        children: [
+          {
+            path: '/data/product',
+            element: <ProductTable />
+          },
+          {
+            path: '/data/client',
+            element: <ClientTable />
+          },
+          {
+            path: '/data/seller',
+            element: <SellerTable />
+          },
+          {
+            path: '/data/category',
+            element: <CategoryTable />
+          }
+        ]
       },
 
       {

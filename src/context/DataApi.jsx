@@ -12,10 +12,6 @@ const DataApiProvider = ({ children }) => {
 
   const [render, setRender] = useState(false);
 
-
-
-  let navigate = useNavigate();
-
   useEffect(() => {
     axios
       .get(`http://localhost:3001/products`)
@@ -36,7 +32,6 @@ const DataApiProvider = ({ children }) => {
 
   const deleteRegister = async (endpoint, id) => {
     if (endpoint === "category") {
-  
       let data = await axios
         .get(`http://localhost:3001/${endpoint}/${id}`)
         .then((res) => res.data);
@@ -53,27 +48,30 @@ const DataApiProvider = ({ children }) => {
 
         alert("Deletado com sucesso! ");
         setRender(!render);
-        navigate("/");
       }
-    } else{
-
+    } else {
       await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
 
       alert("Deletado com sucesso! ");
       setRender(!render);
-      navigate("/");
     }
-
   };
 
   return (
     <>
-        <DataApiContext.Provider
-        value={{ product, seller, client, category, render, setRender, deleteRegister }}
+      <DataApiContext.Provider
+        value={{
+          product,
+          seller,
+          client,
+          category,
+          render,
+          setRender,
+          deleteRegister,
+        }}
       >
         {children}
-      </DataApiContext.Provider> 
-      
+      </DataApiContext.Provider>
     </>
   );
 };
