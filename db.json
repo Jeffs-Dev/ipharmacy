@@ -67,12 +67,6 @@
       "description": "Take 2 pay 1",
       "take": 2,
       "pay": 1
-    },
-    {
-      "description": "Leve 10 e pague 30",
-      "take": "10",
-      "pay": "30",
-      "id": 2
     }
   ]
 }
