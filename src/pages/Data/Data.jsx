@@ -1,5 +1,5 @@
 import "./Data.css";
-import { Outlet } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import DataHeader from "../../components/DataHeader/DataHeader";
 
 const Data = () => {

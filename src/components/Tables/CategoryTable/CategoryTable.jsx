@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 const CategoryTable = () => {
   const { category, deleteRegister } = useContext(DataApiContext);
 
+
   return (
     <>
       {category !== undefined ? (

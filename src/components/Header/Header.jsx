@@ -1,11 +1,11 @@
 import './Header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 import logo from '../../common/logo.svg';
 
 const Header = () => {
 
-  const navigate = useNavigate();
+
   return (
     <>
         
@@ -16,7 +16,7 @@ const Header = () => {
 
         <ul className='flex gap-4'>
             <li> <Link to='/'> Home </Link>   </li>
-            <li> <Link to='/register'> Register </Link>   </li>
+            <li> <Link to='/register/product'> Register </Link>   </li>
             <li> <Link to='/data/product'> Data </Link>   </li>
         </ul>
 

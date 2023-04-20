@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
+import { useNavigate } from "react-router-dom";
 
 const FormProduct = () => {
   const { category, setRender, render } = useContext(DataApiContext);
+
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState({
     title: "",
@@ -84,7 +87,11 @@ const FormProduct = () => {
           </form>
         </div>
       ) : (
-        "navigate to category share"
+        <> 
+        <p> It is not possible to register a product before there are categories</p>
+        
+        <button onClick={() => navigate('/register/category')}> Category </button>
+        </>
       )}
     </>
   );
