@@ -23,23 +23,31 @@ const Data = () => {
       <nav>
         <ul>
           <li>
-            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+            <button
+             style={renderTable==='Product' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+            onClick={(e) => setRenderTable(e.target.innerText)}>
               Product
             </button>
           </li>
           <li>
-            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+            <button
+            style={renderTable==='Client' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+            onClick={(e) => setRenderTable(e.target.innerText)}>
               Client
             </button>
           </li>
 
           <li>
-            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+            <button
+            style={renderTable==='Seller' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+            onClick={(e) => setRenderTable(e.target.innerText)}>
               Seller
             </button>
           </li>
           <li>
-            <button onClick={(e) => setRenderTable(e.target.innerText)}>
+            <button
+            style={renderTable==='Category' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+            onClick={(e) => setRenderTable(e.target.innerText)}>
               Category
             </button>
           </li>

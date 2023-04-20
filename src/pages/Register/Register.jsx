@@ -16,23 +16,34 @@ const Register = () => {
         <nav>
           <ul>
             <li>
-              <button onClick={({target}) => setRenderForm(target.innerText)}>
+             
+              <button
+              
+              style={renderForm==='Product' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+              
+              onClick={({target}) => setRenderForm(target.innerText)}>
                 Product
               </button>
             </li>
             <li>
-              <button onClick={({target}) => setRenderForm(target.innerText)}>
+              <button
+               style={renderForm==='Client' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+              onClick={({target}) => setRenderForm(target.innerText)}>
                 
                 Client
               </button>
             </li>
             <li>
-              <button onClick={({target}) => setRenderForm(target.innerText)}>
+              <button
+               style={renderForm==='Seller' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+              onClick={({target}) => setRenderForm(target.innerText)}>
                 Seller
               </button>
             </li>
             <li>
-              <button onClick={({target}) => setRenderForm(target.innerText)}>
+              <button
+               style={renderForm==='Category' ? {'text-decoration': 'underline'} : {'text-decoration': 'none'}}
+              onClick={({target}) => setRenderForm(target.innerText)}>
                 
                 Category
               </button>
