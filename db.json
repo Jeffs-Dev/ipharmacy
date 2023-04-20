@@ -1,6 +1,22 @@
 {
   "products": [],
   "seller": [],
-  "clients": [],
-  "category": []
+  "clients": [
+    {
+      "name": "Junior Casas Bahia",
+      "email": "jeffcontass@gmail.com",
+      "age": "12",
+      "id": 1
+    }
+  ],
+  "category": [
+    {
+      "description": "Carro Voador",
+      "id": 1
+    },
+    {
+      "description": "Carro que nada",
+      "id": 2
+    }
+  ]
 }

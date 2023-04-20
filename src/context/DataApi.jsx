@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const DataApiContext = createContext();
 
@@ -11,6 +11,8 @@ const DataApiProvider = ({ children }) => {
   const [category, setCategory] = useState(null);
 
   const [render, setRender] = useState(false);
+
+
 
   let navigate = useNavigate();
 
@@ -34,10 +36,7 @@ const DataApiProvider = ({ children }) => {
 
   const deleteRegister = async (endpoint, id) => {
     if (endpoint === "category") {
-      let categoryID = category.map((category) => {
-        return category.id;
-      });
-
+  
       let data = await axios
         .get(`http://localhost:3001/${endpoint}/${id}`)
         .then((res) => res.data);
@@ -65,19 +64,16 @@ const DataApiProvider = ({ children }) => {
       navigate("/");
     }
 
-
-
-
-
   };
 
   return (
     <>
-      <DataApiContext.Provider
-        value={{ product, seller, client, category, setRender, deleteRegister }}
+        <DataApiContext.Provider
+        value={{ product, seller, client, category, render, setRender, deleteRegister }}
       >
         {children}
-      </DataApiContext.Provider>
+      </DataApiContext.Provider> 
+      
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Register.css";
 import FormProduct from "../../components/Forms/FormProduct/FormProduct";
 import { DataApiContext } from "../../context/DataApi";
@@ -9,6 +9,11 @@ import FormCategory from "../../components/Forms/FormCategory/FormCategory";
 const Register = () => {
   const [renderForm, setRenderForm] = useState("Product");
   const { category, setRender, render } = useContext(DataApiContext);
+
+  useEffect(() => {
+      setRender(!render)
+  }, [])
+
 
   return (
     <>

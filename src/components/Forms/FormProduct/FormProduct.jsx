@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FormProduct = ({ category, setRender, render }) => {
   const [product, setProduct] = useState({
@@ -8,6 +8,8 @@ const FormProduct = ({ category, setRender, render }) => {
     price: undefined,
     category: undefined,
   });
+
+
 
   const postProduct = (e) => {
     e.preventDefault();
@@ -39,6 +41,9 @@ const FormProduct = ({ category, setRender, render }) => {
 
   return (
     <>
+    {}
+
+
       <div className="container">
         <form onSubmit={postProduct}>
           <label> Title </label>
@@ -79,6 +84,9 @@ const FormProduct = ({ category, setRender, render }) => {
           <button> Send </button>
         </form>
       </div>
+
+
+
     </>
   );
 };
