@@ -1,11 +1,78 @@
 {
-  "products": [],
-  "seller": [],
-  "clients": [],
+  "products": [
+    {
+      "id": 1,
+      "title": "Ford Ka",
+      "description": "Alguma descrição 1",
+      "price": 50000,
+      "category": 2
+    },
+    {
+      "id": 2,
+      "title": "Ford Ha",
+      "description": "Alguma descrição 2",
+      "price": 60000,
+      "category": 1
+    },
+    {
+      "id": 3,
+      "title": "Ford Pa",
+      "description": "Alguma descrição 3",
+      "price": 70000,
+      "category": 4
+    }
+  ],
+  "seller": [
+    {
+      "name": "Almeidinha",
+      "location": "New York City",
+      "id": 1
+    }
+  ],
+  "clients": [
+    {
+      "name": "Junior Casas Bahia",
+      "email": "joshua@test.com",
+      "age": "34",
+      "id": 1
+    },
+    {
+      "name": "Joshua",
+      "email": "joshua@joshua.com",
+      "age": "18",
+      "id": 2
+    }
+  ],
   "category": [
     {
-      "description": "Carro Voador",
+      "description": "Sedan",
       "id": 1
+    },
+    {
+      "description": "Hatch",
+      "id": 2
+    },
+    {
+      "description": "Five Stars",
+      "id": 3
+    },
+    {
+      "description": "Truck",
+      "id": 4
+    }
+  ],
+  "sale": [
+    {
+      "id": 1,
+      "description": "Take 2 pay 1",
+      "take": 2,
+      "pay": 1
+    },
+    {
+      "description": "Leve 10 e pague 30",
+      "take": "10",
+      "pay": "30",
+      "id": 2
     }
   ]
 }

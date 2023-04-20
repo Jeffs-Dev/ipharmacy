@@ -11,6 +11,8 @@ import FormProduct from "./components/Forms/FormProduct/FormProduct";
 import FormClient from "./components/Forms/FormClient/FormClient";
 import FormSeller from "./components/Forms/FormSeller/FormSeller";
 import FormCategory from "./components/Forms/FormCategory/FormCategory";
+import SaleTable from "./components/Tables/SaleTable/SaleTable";
+import FormSale from "./components/Forms/FormSale/FormSale";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
           {
             path: '/data/category',
             element: <CategoryTable />
+          },
+          {
+            path: '/data/sale',
+            element: <SaleTable />
           }
         ]
       },
@@ -64,6 +70,10 @@ const router = createBrowserRouter([
           {
             path: '/register/category',
             element: <FormCategory/>
+          },
+          {
+            path: '/register/sale',
+            element: <FormSale/>
           }
         ]
       },

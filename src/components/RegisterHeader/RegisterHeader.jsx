@@ -19,6 +19,9 @@ const RegisterHeader = () => {
           <li>
             <Link to={"/register/category"}> Category </Link>
           </li>
+          <li>
+            <Link to={"/register/sale"}> Sale </Link>
+          </li>
         </ul>
       </nav>
     </>
