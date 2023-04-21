@@ -14,7 +14,7 @@ const DataApiProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/products`)
+      .get(`http://localhost:3001/product`)
       .then((res) => setProduct(res.data));
 
     axios
@@ -32,9 +32,6 @@ const DataApiProvider = ({ children }) => {
       axios
       .get(`http://localhost:3001/sale`)
       .then((res) => setSale(res.data));
-
-
-
 
   }, [render]);
 
@@ -67,6 +64,12 @@ const DataApiProvider = ({ children }) => {
     }
   };
 
+
+  const updateRegister = async (endpoint) => {
+    console.log(`PUT - ${endpoint}`)
+  }
+
+
   return (
     <>
       <DataApiContext.Provider
@@ -79,6 +82,7 @@ const DataApiProvider = ({ children }) => {
           render,
           setRender,
           deleteRegister,
+          updateRegister,
         }}
       >
         {children}

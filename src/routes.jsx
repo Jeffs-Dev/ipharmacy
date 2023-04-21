@@ -13,6 +13,7 @@ import FormSeller from "./components/Forms/FormSeller/FormSeller";
 import FormCategory from "./components/Forms/FormCategory/FormCategory";
 import SaleTable from "./components/Tables/SaleTable/SaleTable";
 import FormSale from "./components/Forms/FormSale/FormSale";
+import UpdateData from "./components/UpdateData/UpdateData";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,31 @@ const router = createBrowserRouter([
       },
 
       {
+        path: '/data/product/:id',
+        element: <UpdateData />
+      },
+
+      {
+        path: '/data/client/:id',
+        element: <UpdateData />
+      },
+
+      {
+        path: '/data/seller/:id',
+        element: <UpdateData />
+      },
+
+      {
+        path: '/data/category/:id',
+        element: <UpdateData />
+      },
+
+      {
+        path: '/data/sale/:id',
+        element: <UpdateData />
+      },
+
+      {
         path: "/register",
         element: <Register />,
         children: [
@@ -69,11 +95,11 @@ const router = createBrowserRouter([
           },
           {
             path: '/register/category',
-            element: <FormCategory/>
+            element: <FormCategory />
           },
           {
             path: '/register/sale',
-            element: <FormSale/>
+            element: <FormSale />
           }
         ]
       },

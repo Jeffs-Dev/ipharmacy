@@ -7,6 +7,7 @@ const DataRoutesProvider = ({ children }) => {
 
     const {pathname} = useLocation()
    
+    
 
 
   return (

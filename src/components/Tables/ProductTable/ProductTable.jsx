@@ -7,6 +7,7 @@ const ProductTable = () => {
     
     const { product, category, deleteRegister } = useContext(DataApiContext);
 
+    console.log(category)
 
   return (
     <>
@@ -35,12 +36,13 @@ const ProductTable = () => {
                     <TableCell align="center">{row.title}</TableCell>
                     <TableCell align="center">{row.description}</TableCell>
                     <TableCell align="center">{row.price}</TableCell>
+                    {/* resolver isso aq */}
                     <TableCell align="center">{lul.description}</TableCell>
                     <TableCell align="center">
                       <div className="action">
                         <button
                           onClick={() => {
-                            deleteRegister("products", row.id);
+                            deleteRegister("product", row.id);
                           }}
                         >
                           Delete

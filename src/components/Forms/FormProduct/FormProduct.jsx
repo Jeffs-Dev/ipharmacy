@@ -2,11 +2,11 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
 import { useNavigate } from "react-router-dom";
+import { DataRoutesContext } from "../../../context/DataRoutes";
 
-const FormProduct = () => {
-  const { category, setRender, render } = useContext(DataApiContext);
+const FormProduct = ({ data }) => {
 
-  const navigate = useNavigate();
+  const [verify, setVerify] = useState(true);
 
   const [product, setProduct] = useState({
     title: "",
@@ -15,9 +15,35 @@ const FormProduct = () => {
     category: undefined,
   });
 
+  const { category, setRender, render } = useContext(DataApiContext);
+  const navigate = useNavigate();
+  const { pathname } = useContext(DataRoutesContext);
+
+  const endpointID = pathname.slice(-1);
+
+  useEffect(() => {
+
+    if (pathname.includes("/data")) {
+
+      setVerify(false);
+
+      const {title, description, price, category: categoryProduct } = data[0];
+
+        setProduct({
+          title: title,
+          description: description,
+          price: price,
+          category: categoryProduct,
+        })
+    }
+
+  }, [])
+
+
+
   const postProduct = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3001/products`, product);
+    axios.post(`http://localhost:3001/product`, product);
 
     setRender(!render);
 
@@ -27,7 +53,32 @@ const FormProduct = () => {
       price: undefined,
       category: 1,
     });
+
+    alert('Cadastrado com sucesso!')
+    navigate('/');
   };
+
+
+
+  const updateProduct = (e) => {
+    e.preventDefault();
+    console.log('PUT')
+    
+    axios.put(`http://localhost:3001/product/${endpointID}`, product);
+
+    setRender(!render);
+
+    setProduct({
+      title: "",
+      description: "",
+      price: undefined,
+      category: 1,
+    });
+    alert('Atualizado com sucesso!')
+    navigate('/');
+  };
+
+
 
   function setProductInputs({ target }) {
     const { id, value } = target;
@@ -47,7 +98,7 @@ const FormProduct = () => {
     <>
       {category.length >= 1 && category !== undefined ? (
         <div className="container">
-          <form onSubmit={postProduct}>
+          <form onSubmit={verify ? postProduct : updateProduct}>
             <label> Title </label>
 
             <input
@@ -84,13 +135,14 @@ const FormProduct = () => {
             </select>
 
             <button> Send </button>
+
           </form>
         </div>
       ) : (
-        <> 
-        <p> It is not possible to register a product before there are categories</p>
-        
-        <button onClick={() => navigate('/register/category')}> Category </button>
+        <>
+          <p> It is not possible to register a product before there are categories</p>
+
+          <button onClick={() => navigate('/register/category')} > Category </button>
         </>
       )}
     </>
