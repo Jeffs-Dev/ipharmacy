@@ -62,7 +62,6 @@ const FormProduct = ({ data }) => {
 
   const updateProduct = (e) => {
     e.preventDefault();
-    console.log('PUT')
     
     axios.put(`http://localhost:3001/product/${endpointID}`, product);
 

@@ -2,6 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { DataRoutesContext } from "../../context/DataRoutes";
 import { DataApiContext } from "../../context/DataApi";
 import FormProduct from '../Forms/FormProduct/FormProduct';
+import FormClient from '../Forms/FormClient/FormClient';
+import FormSeller from '../Forms/FormSeller/FormSeller';
+import FormCategory from '../Forms/FormCategory/FormCategory';
+import FormSale from '../Forms/FormSale/FormSale';
 
 const UpdateData = () => {
 
@@ -70,13 +74,13 @@ const UpdateData = () => {
 
                     {product != undefined && endpointName === 'product' && data != undefined && <FormProduct data={data}/> }
 
-                    {client != undefined && endpointName === 'client' && <h1> Form Client</h1>}
+                    {client != undefined && endpointName === 'client' && data != undefined && <FormClient data={data}/>}
 
-                    {seller != undefined && endpointName === 'seller' && <h1> Form Seller</h1>}
+                    {seller != undefined && endpointName === 'seller' && data != undefined && <FormSeller data={data}/>}
 
-                    {category != undefined && endpointName === 'category' && <h1> Form Category</h1>}
+                    {category != undefined && endpointName === 'category' && data != undefined &&  <FormCategory data={data}/>}
 
-                    {sale != undefined && endpointName === 'sale' && <h1> Form Sale</h1>}
+                    {sale != undefined && endpointName === 'sale' && data != undefined && <FormSale data={data} />}
 
 
 

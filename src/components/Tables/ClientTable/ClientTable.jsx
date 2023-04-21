@@ -5,15 +5,11 @@ import { Link } from 'react-router-dom';
 
 const ClientTable = () => {
 
-    const { client, deleteRegister } = useContext(DataApiContext);
-
-
+  const { client, deleteRegister } = useContext(DataApiContext);
 
   return (
     <>
-
-
-{client !== undefined ? (
+      {client !== undefined ? (
         <TableContainer component={Paper}>
           <Table>
             <TableHead>

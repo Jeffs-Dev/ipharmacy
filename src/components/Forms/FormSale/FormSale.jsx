@@ -1,15 +1,62 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
 
-const FormSale = () => {
+import { useNavigate } from "react-router-dom";
+import { DataRoutesContext } from "../../../context/DataRoutes";
+
+const FormSale = ({data}) => {
   const { setRender, render } = useContext(DataApiContext);
+  const [verify, setVerify] = useState(true);
 
   const [sale, setSale] = useState({
     description: "",
     take: undefined,
     pay: undefined,
   });
+
+
+  const navigate = useNavigate();
+  const { pathname } = useContext(DataRoutesContext);
+
+  const endpointID = pathname.slice(-1);
+
+  useEffect(() => {
+
+    if (pathname.includes("/data")) {
+
+      setVerify(false);
+
+      const { description, take , pay } = data[0];
+
+      setSale({
+        description: description,
+        take: take,
+        pay: pay,
+      })
+
+    }
+
+  }, [])
+
+
+  const updateSale = (e) => {
+    e.preventDefault();
+
+    axios.put(`http://localhost:3001/sale/${endpointID}`, sale);
+
+    setRender(!render);
+
+    setSale({
+      description: "",
+      take: undefined,
+     pay: undefined,
+
+    });
+    alert('Atualizado com sucesso!')
+    navigate('/');
+  };
+
 
   const postSale = (e) => {
     e.preventDefault();
@@ -46,7 +93,7 @@ const FormSale = () => {
   return (
     <>
       <div className="container">
-        <form onSubmit={postSale}>
+        <form onSubmit={verify ? postSale : updateSale}>
           <label> Description </label>
 
           <input

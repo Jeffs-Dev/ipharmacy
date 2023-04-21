@@ -1,15 +1,51 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
+import { DataRoutesContext } from '../../../context/DataRoutes';
+import { useNavigate } from "react-router-dom";
 
-const FormClient = () => {
+const FormClient = ({ data }) => {
   const { setRender, render } = useContext(DataApiContext);
+
+  const [verify, setVerify] = useState(true);
 
   const [client, setClient] = useState({
     name: "",
     email: "",
-    age: undefined,
+    age: "",
   });
+
+
+  const navigate = useNavigate();
+  const { pathname } = useContext(DataRoutesContext);
+
+  const endpointID = pathname.slice(-1);
+
+
+
+  useEffect(() => {
+
+    if (pathname.includes("/data")) {
+
+      setVerify(false);
+
+      const { name, email, age } = data[0];
+
+      setClient({
+        name: name,
+        email: email,
+        age: Number(age),
+      })
+    }
+
+  }, [])
+
+
+
+
+
+
+
 
   const postClient = (e) => {
     e.preventDefault();
@@ -21,7 +57,29 @@ const FormClient = () => {
       email: "",
       age: "",
     });
+
+    alert('Cadastrado com sucesso!')
+    navigate('/');
+
   };
+
+  const updateClient = (e) => {
+    e.preventDefault();
+
+    axios.put(`http://localhost:3001/clients/${endpointID}`, client);
+
+    setRender(!render);
+
+    setClient({
+      name: "",
+      email: "",
+      age: undefined,
+    });
+    alert('Atualizado com sucesso!')
+    navigate('/');
+  };
+
+
 
   function setClientInputs({ target }) {
     const { id, value } = target;
@@ -32,7 +90,7 @@ const FormClient = () => {
   return (
     <>
       <div className="container">
-        <form onSubmit={postClient}>
+        <form onSubmit={verify ? postClient : updateClient }>
           <label> Name </label>
 
           <input

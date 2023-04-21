@@ -1,20 +1,6 @@
 {
   "product": [
     {
-      "title": "Ford Camaro",
-      "description": "Amarelo!",
-      "price": 50000,
-      "category": 2,
-      "id": 1
-    },
-    {
-      "title": "Ford Ha",
-      "description": "Alguma descrição 2",
-      "price": 60000,
-      "category": 1,
-      "id": 2
-    },
-    {
       "id": 3,
       "title": "Ford Pa",
       "description": "Alguma descrição 3",
@@ -25,21 +11,15 @@
   "seller": [
     {
       "name": "Almeidinha",
-      "location": "New York City",
+      "location": "Moc City",
       "id": 1
     }
   ],
   "clients": [
     {
-      "name": "Junior Casas Bahia",
-      "email": "joshua@test.com",
-      "age": "34",
-      "id": 1
-    },
-    {
       "name": "Joshua",
       "email": "joshua@joshua.com",
-      "age": "18",
+      "age": "25",
       "id": 2
     }
   ],
@@ -53,20 +33,16 @@
       "id": 2
     },
     {
-      "description": "Five Stars",
-      "id": 3
-    },
-    {
       "description": "Truck",
       "id": 4
     }
   ],
   "sale": [
     {
-      "id": 1,
       "description": "Take 2 pay 1",
       "take": 2,
-      "pay": 1
+      "pay": "3",
+      "id": 1
     }
   ]
 }
