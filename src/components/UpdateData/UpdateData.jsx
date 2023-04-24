@@ -82,18 +82,9 @@ const UpdateData = () => {
 
                     {sale != undefined && endpointName === 'sale' && data != undefined && <FormSale data={data} />}
 
-
-
                 </>
 
-
-
-
             ) : 'Loading'}
-
-
-
-
 
         </>
     )

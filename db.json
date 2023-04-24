@@ -41,8 +41,14 @@
     {
       "description": "Take 2 pay 1",
       "take": 2,
-      "pay": "3",
+      "pay": 1,
       "id": 1
+    },
+    {
+      "description": "Take 2 pay 1",
+      "take": 2,
+      "pay": 1,
+      "id": 2
     }
   ]
 }

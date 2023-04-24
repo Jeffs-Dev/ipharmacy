@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { DataRoutesContext } from "../../../context/DataRoutes";
 
 const FormSale = ({data}) => {
+
+  
   const { setRender, render } = useContext(DataApiContext);
   const [verify, setVerify] = useState(true);
 
@@ -31,11 +33,11 @@ const FormSale = ({data}) => {
 
       setSale({
         description: description,
-        take: take,
-        pay: pay,
+        take: Number(take),
+        pay: Number(pay),
       })
 
-    }
+    } 
 
   }, [])
 
@@ -50,7 +52,7 @@ const FormSale = ({data}) => {
     setSale({
       description: "",
       take: undefined,
-     pay: undefined,
+      pay: undefined,
 
     });
     alert('Atualizado com sucesso!')
@@ -61,7 +63,7 @@ const FormSale = ({data}) => {
   const postSale = (e) => {
     e.preventDefault();
 
-    const { take, pay } = sale;
+    const { description ,take, pay } = sale;
 
     if (take <= pay) {
         
@@ -71,15 +73,19 @@ const FormSale = ({data}) => {
       return;
 
     } else {
-      axios.post(`http://localhost:3001/sale`, sale);
+      axios.post(`http://localhost:3001/sale`, {
+        description: description,
+        take: Number(take),
+        pay: Number(pay)
+      });
       setRender(!render);
 
       alert("Successfully registered!");
 
       setSale({
         description: "",
-        take: "",
-        pay: "",
+        take: undefined,
+        pay: undefined,
       });
     }
   };
@@ -106,7 +112,7 @@ const FormSale = ({data}) => {
 
           <label> Take </label>
           <input
-            value={sale.take}
+            value={Number(sale.take)}
             id="take"
             type="number"
             required={true}
@@ -115,7 +121,7 @@ const FormSale = ({data}) => {
 
           <label> Pay </label>
           <input
-            value={sale.pay}
+            value={Number(sale.pay)}
             id="pay"
             type="number"
             required={true}
