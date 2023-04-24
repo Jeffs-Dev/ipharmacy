@@ -26,14 +26,14 @@ const ProductTable = () => {
 
             <TableBody>
               {product.map((row) => {
-                let lul = category.find((item) => item.id === row.category);
+                let categoryDescription = category.find((item) => item.id === row.category);
                 return (
                   <TableRow key={row.id}>
                     <TableCell align="center">{row.id}</TableCell>
                     <TableCell align="center">{row.title}</TableCell>
                     <TableCell align="center">{row.description}</TableCell>
                     <TableCell align="center">{row.price}</TableCell>
-                    <TableCell align="center">{lul.description}</TableCell>
+                    <TableCell align="center">{categoryDescription.description}</TableCell>
                     <TableCell align="center">
                       <div className="action">
                         <button

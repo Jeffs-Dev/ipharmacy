@@ -20,11 +20,11 @@ const Home = () => {
         </p>
 
         <div>
-          <Link to="/register" className="button">
+          <Link to="/register/product" className="button">
             {" "}
             Register{" "}
           </Link>
-          <Link to="/data" className="button">
+          <Link to="/data/product" className="button">
             {" "}
             Records{" "}
           </Link>

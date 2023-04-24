@@ -6,6 +6,13 @@
       "description": "Alguma descrição 3",
       "price": 70000,
       "category": 4
+    },
+    {
+      "title": "LUL",
+      "description": "asdsa",
+      "price": "123123",
+      "category": 4,
+      "id": 4
     }
   ],
   "seller": [
@@ -42,13 +49,13 @@
       "description": "Take 2 pay 1",
       "take": 2,
       "pay": 1,
-      "id": 1
+      "id": 2
     },
     {
-      "description": "Take 2 pay 1",
-      "take": 2,
-      "pay": 1,
-      "id": 2
+      "description": "Take 30 pay 25",
+      "take": 30,
+      "pay": 25,
+      "id": 3
     }
   ]
 }

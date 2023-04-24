@@ -13,8 +13,8 @@ const FormSale = ({data}) => {
 
   const [sale, setSale] = useState({
     description: "",
-    take: undefined,
-    pay: undefined,
+    take: '',
+    pay: '',
   });
 
 
@@ -84,8 +84,8 @@ const FormSale = ({data}) => {
 
       setSale({
         description: "",
-        take: undefined,
-        pay: undefined,
+        take: '',
+        pay: '',
       });
     }
   };
@@ -112,7 +112,7 @@ const FormSale = ({data}) => {
 
           <label> Take </label>
           <input
-            value={Number(sale.take)}
+            value={sale.take}
             id="take"
             type="number"
             required={true}
@@ -121,7 +121,7 @@ const FormSale = ({data}) => {
 
           <label> Pay </label>
           <input
-            value={Number(sale.pay)}
+            value={sale.pay}
             id="pay"
             type="number"
             required={true}
