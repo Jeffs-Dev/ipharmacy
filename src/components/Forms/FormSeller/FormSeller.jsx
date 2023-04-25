@@ -1,15 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
-
-import { useNavigate } from "react-router-dom";
 import { DataRoutesContext } from "../../../context/DataRoutes";
+import { regex } from "../../../utils/regex";
 
 const FormSeller = ({ data }) => {
-
-
   const { setRender, render } = useContext(DataApiContext);
   const [verify, setVerify] = useState(true);
+  const [endpointID, setEndpointID] = useState(null);
 
   const [seller, setSeller] = useState({
     name: "",
@@ -17,14 +15,11 @@ const FormSeller = ({ data }) => {
   });
 
 
-  const navigate = useNavigate();
   const { pathname } = useContext(DataRoutesContext);
 
-  const endpointID = pathname.slice(-1);
-
   useEffect(() => {
-
     if (pathname.includes("/data")) {
+      setEndpointID(regex.exec(pathname).index);
 
       setVerify(false);
 
@@ -33,13 +28,9 @@ const FormSeller = ({ data }) => {
       setSeller({
         name: name,
         location: location,
-      })
-
-
+      });
     }
-
-  }, [])
-
+  }, []);
 
   const postSeller = (e) => {
     e.preventDefault();
@@ -52,8 +43,8 @@ const FormSeller = ({ data }) => {
       location: "",
     });
 
-    alert('Cadastrado com sucesso!')
-    navigate('/');
+    alert('Registered successfully!');
+   
   };
 
   const updateSeller = (e) => {
@@ -66,16 +57,10 @@ const FormSeller = ({ data }) => {
     setSeller({
       name: "",
       location: "",
-
     });
-    alert('Atualizado com sucesso!')
-    navigate('/');
+    alert('Updated successfully!');
+  
   };
-
-
-
-
-
 
   function setSellerInputs({ target }) {
     const { id, value } = target;

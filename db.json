@@ -1,7 +1,19 @@
 {
   "product": [],
   "seller": [],
-  "clients": [],
-  "category": [],
+  "clients": [
+    {
+      "name": "Junior Casas Bahia",
+      "email": "joshua@test.com",
+      "age": 34,
+      "id": 1
+    }
+  ],
+  "category": [
+    {
+      "description": "Carro que nada",
+      "id": 1
+    }
+  ],
   "sale": []
 }

@@ -2,12 +2,13 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
 import { DataRoutesContext } from '../../../context/DataRoutes';
-import { useNavigate } from "react-router-dom";
+import { regex } from "../../../utils/regex";
 
 const FormClient = ({ data }) => {
   const { setRender, render } = useContext(DataApiContext);
 
   const [verify, setVerify] = useState(true);
+  const [endpointID, setEndpointID] = useState(null);
 
   const [client, setClient] = useState({
     name: "",
@@ -16,16 +17,14 @@ const FormClient = ({ data }) => {
   });
 
 
-  const navigate = useNavigate();
+
   const { pathname } = useContext(DataRoutesContext);
 
-  const endpointID = pathname.slice(-1);
-
-
+ 
   useEffect(() => {
 
     if (pathname.includes("/data")) {
-
+      setEndpointID(regex.exec(pathname).index)
       setVerify(false);
 
       const { name, email, age } = data[0];
@@ -54,8 +53,8 @@ const FormClient = ({ data }) => {
       age: undefined,
     });
 
-    alert('Cadastrado com sucesso!')
-    navigate('/');
+    alert('Registered successfully!')
+  
 
   };
 
@@ -71,8 +70,8 @@ const FormClient = ({ data }) => {
       email: "",
       age: undefined,
     });
-    alert('Atualizado com sucesso!')
-    navigate('/');
+    alert('Successfully updated!')
+   
   };
 
 

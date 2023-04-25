@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
-
 import { useNavigate } from "react-router-dom";
 import { DataRoutesContext } from "../../../context/DataRoutes";
+import { regex } from "../../../utils/regex";
 
 const FormSale = ({ data }) => {
   const navigate = useNavigate();
   const { pathname } = useContext(DataRoutesContext);
-  const endpointID = pathname.slice(-1);
+  const [endpointID, setEndpointID] = useState(null);
 
   const [verify, setVerify] = useState(true);
 
@@ -28,6 +28,7 @@ const FormSale = ({ data }) => {
 
   useEffect(() => {
     if (pathname.includes("/data")) {
+      setEndpointID(regex.exec(pathname).index);
       setVerify(false);
 
       const { description, take, pay, product: productID } = data[0];
@@ -55,7 +56,7 @@ const FormSale = ({ data }) => {
       product: undefined,
     });
     alert("Successfully updated!");
-    navigate("/");
+
   };
 
   const postSale = (e) => {

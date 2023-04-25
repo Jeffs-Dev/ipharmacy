@@ -3,10 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
 import { useNavigate } from "react-router-dom";
 import { DataRoutesContext } from "../../../context/DataRoutes";
+import { regex } from "../../../utils/regex";
 
 const FormProduct = ({ data }) => {
   const { category, setRender, render } = useContext(DataApiContext);
   const [verify, setVerify] = useState(true);
+  const [endpointID, setEndpointID] = useState(null);
 
   const [product, setProduct] = useState({
     title: "",
@@ -18,10 +20,10 @@ const FormProduct = ({ data }) => {
   const navigate = useNavigate();
   const { pathname } = useContext(DataRoutesContext);
 
-  const endpointID = pathname.slice(-1);
 
   useEffect(() => {
     if (pathname.includes("/data")) {
+      setEndpointID(regex.exec(pathname).index);
       setVerify(false);
 
       const { title, description, price, category } = data[0];
