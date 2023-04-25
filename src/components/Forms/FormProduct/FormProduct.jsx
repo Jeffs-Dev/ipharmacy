@@ -91,6 +91,8 @@ const FormProduct = ({ data }) => {
     } else {
       setProduct({ ...product, [id]: value });
     }
+
+    
   }
 
   return (

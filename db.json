@@ -49,15 +49,15 @@
       "description": "Take 2 pay 1",
       "take": 2,
       "pay": 1,
-      "id": 2,
-      "product": 3
+      "product": 3,
+      "id": 1
     },
     {
-      "description": "Take 30 pay 25",
-      "take": 30,
-      "pay": 25,
-      "id": 3,
-      "product": 4
+      "description": "Take 4 pay 2",
+      "take": "4",
+      "pay": 2,
+      "product": 4,
+      "id": 2
     }
   ]
 }
