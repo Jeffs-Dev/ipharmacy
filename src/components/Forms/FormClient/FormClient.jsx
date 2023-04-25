@@ -12,7 +12,7 @@ const FormClient = ({ data }) => {
   const [client, setClient] = useState({
     name: "",
     email: "",
-    age: "",
+    age: undefined,
   });
 
 
@@ -20,7 +20,6 @@ const FormClient = ({ data }) => {
   const { pathname } = useContext(DataRoutesContext);
 
   const endpointID = pathname.slice(-1);
-
 
 
   useEffect(() => {
@@ -41,21 +40,18 @@ const FormClient = ({ data }) => {
   }, [])
 
 
-
-
-
-
-
-
   const postClient = (e) => {
     e.preventDefault();
+
+    client.age = Number(client.age);
+
     axios.post(`http://localhost:3001/clients`, client);
     setRender(!render);
 
     setClient({
       name: "",
       email: "",
-      age: "",
+      age: undefined,
     });
 
     alert('Cadastrado com sucesso!')
@@ -111,7 +107,7 @@ const FormClient = ({ data }) => {
 
           <label> Age </label>
           <input
-            value={client.age}
+            value={Number(client.age)}
             id="age"
             type="number"
             required={true}

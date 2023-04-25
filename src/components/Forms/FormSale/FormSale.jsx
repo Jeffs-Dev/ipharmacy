@@ -89,7 +89,7 @@ const FormSale = ({ data }) => {
   };
 
   function setSaleInputs({ target }) {
-    console.log(target.value);
+    
     const { id, value } = target;
 
     if (id === "product") {

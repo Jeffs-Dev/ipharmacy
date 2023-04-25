@@ -1,32 +1,7 @@
 {
-  "product": [
-    {
-      "title": "asd",
-      "description": "asdad",
-      "price": "123",
-      "category": 1,
-      "id": 1
-    }
-  ],
+  "product": [],
   "seller": [],
   "clients": [],
-  "category": [
-    {
-      "description": "Carro Voador",
-      "id": 1
-    },
-    {
-      "description": "Carro que nada",
-      "id": 2
-    }
-  ],
-  "sale": [
-    {
-      "description": "asdasd",
-      "take": 3,
-      "pay": 2,
-      "product": 1,
-      "id": 1
-    }
-  ]
+  "category": [],
+  "sale": []
 }

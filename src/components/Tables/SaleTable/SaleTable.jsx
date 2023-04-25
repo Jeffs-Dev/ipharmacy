@@ -1,16 +1,22 @@
-import { useContext } from 'react'
-import { DataApiContext } from '../../../context/DataApi';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { DataApiContext } from "../../../context/DataApi";
+import {
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 const SaleTable = () => {
-
-    const { sale, deleteRegister, product } = useContext(DataApiContext);
-
+  const { sale, deleteRegister, product } = useContext(DataApiContext);
 
   return (
     <>
-        {sale !== undefined && product !== undefined ? (
+      {sale !== undefined && product !== undefined ? (
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -25,37 +31,38 @@ const SaleTable = () => {
             </TableHead>
 
             <TableBody>
-              {sale.map(({id, description, take, pay, product:productCode}) => {
+              {sale.map(
+                ({ id, description, take, pay, product: productCode }) => {
+                  let { title } = product.find(
+                    (item) => Number(item.id) === Number(productCode)
+                  );
 
-                console.log(productCode)
+                  return (
+                    <TableRow key={id}>
+                      <TableCell align="center">{id}</TableCell>
+                      <TableCell align="center">{title}</TableCell>
+                      <TableCell align="center">{description}</TableCell>
+                      <TableCell align="center">{take}</TableCell>
+                      <TableCell align="center">{pay}</TableCell>
+                      <TableCell align="center">
+                        <div className="action">
+                          <button
+                            onClick={() => {
+                              deleteRegister("sale", id);
+                            }}
+                          >
+                            Delete
+                          </button>
 
-              let {title} = product.find((item) => Number(item.id) === Number(productCode));
-                
-                return (
-                  <TableRow key={id}>
-                    <TableCell align="center">{id}</TableCell>
-                    <TableCell align="center">{title}</TableCell>
-                    <TableCell align="center">{description}</TableCell>
-                    <TableCell align="center">{take}</TableCell>
-                    <TableCell align="center">{pay}</TableCell>
-                    <TableCell align="center">
-                      <div className="action">
-                        <button
-                          onClick={() => {
-                            deleteRegister("sale", id);
-                          }}
-                        >
-                          Delete
-                        </button>
-
-                        <button>
-                          <Link to={`/data/sale/${id}`}>Update</Link>
-                        </button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+                          <button>
+                            <Link to={`/data/sale/${id}`}>Update</Link>
+                          </button>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
+              )}
             </TableBody>
           </Table>
         </TableContainer>
@@ -63,7 +70,7 @@ const SaleTable = () => {
         "Loading..."
       )}
     </>
-  )
-}
+  );
+};
 
 export default SaleTable;

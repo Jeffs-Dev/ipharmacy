@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { DataRoutesContext } from "../../../context/DataRoutes";
 
 const FormProduct = ({ data }) => {
-
   const { category, setRender, render } = useContext(DataApiContext);
   const [verify, setVerify] = useState(true);
 
@@ -13,7 +12,7 @@ const FormProduct = ({ data }) => {
     title: "",
     description: "",
     price: undefined,
-    category: category[0].id,
+    category: undefined,
   });
 
   const navigate = useNavigate();
@@ -22,27 +21,25 @@ const FormProduct = ({ data }) => {
   const endpointID = pathname.slice(-1);
 
   useEffect(() => {
-
     if (pathname.includes("/data")) {
-
       setVerify(false);
 
-      const {title, description, price, category } = data[0];
+      const { title, description, price, category } = data[0];
 
-        setProduct({
-          title: title,
-          description: description,
-          price: Number(price),
-          category: Number(category),
-        })
+      setProduct({
+        title: title,
+        description: description,
+        price: Number(price),
+        category: Number(category),
+      });
     }
-
-  }, [])
-
-
+  }, []);
 
   const postProduct = (e) => {
     e.preventDefault();
+
+    product.price = Number(product.price);
+
     axios.post(`http://localhost:3001/product`, product);
 
     setRender(!render);
@@ -54,15 +51,12 @@ const FormProduct = ({ data }) => {
       category: undefined,
     });
 
-    alert('Cadastrado com sucesso!')
-    navigate('/');
+    alert("Registered successfully!");
   };
-
-
 
   const updateProduct = (e) => {
     e.preventDefault();
-    
+
     axios.put(`http://localhost:3001/product/${endpointID}`, product);
 
     setRender(!render);
@@ -73,11 +67,8 @@ const FormProduct = ({ data }) => {
       price: undefined,
       category: 1,
     });
-    alert('Atualizado com sucesso!')
-    navigate('/');
+    alert("Successfully updated!");
   };
-
-
 
   function setProductInputs({ target }) {
     const { id, value } = target;
@@ -91,8 +82,6 @@ const FormProduct = ({ data }) => {
     } else {
       setProduct({ ...product, [id]: value });
     }
-
-    
   }
 
   return (
@@ -120,7 +109,7 @@ const FormProduct = ({ data }) => {
 
             <label> Price </label>
             <input
-              value={product.price}
+              value={Number(product.price)}
               id="price"
               type="number"
               required={true}
@@ -136,14 +125,19 @@ const FormProduct = ({ data }) => {
             </select>
 
             <button> Send </button>
-
           </form>
         </div>
       ) : (
         <>
-          <p> It is not possible to register a product before there are categories</p>
+          <p>
+            {" "}
+            It is not possible to register a product before there are categories
+          </p>
 
-          <button onClick={() => navigate('/register/category')} > Category </button>
+          <button onClick={() => navigate("/register/category")}>
+            {" "}
+            Category{" "}
+          </button>
         </>
       )}
     </>
