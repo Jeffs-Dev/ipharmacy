@@ -6,16 +6,16 @@ import { DataRoutesContext } from "../../../context/DataRoutes";
 
 const FormProduct = ({ data }) => {
 
+  const { category, setRender, render } = useContext(DataApiContext);
   const [verify, setVerify] = useState(true);
 
   const [product, setProduct] = useState({
     title: "",
     description: "",
     price: undefined,
-    category: undefined,
+    category: category[0].id,
   });
 
-  const { category, setRender, render } = useContext(DataApiContext);
   const navigate = useNavigate();
   const { pathname } = useContext(DataRoutesContext);
 
@@ -27,13 +27,13 @@ const FormProduct = ({ data }) => {
 
       setVerify(false);
 
-      const {title, description, price, category: categoryProduct } = data[0];
+      const {title, description, price, category } = data[0];
 
         setProduct({
           title: title,
           description: description,
-          price: price,
-          category: categoryProduct,
+          price: Number(price),
+          category: Number(category),
         })
     }
 
@@ -51,7 +51,7 @@ const FormProduct = ({ data }) => {
       title: "",
       description: "",
       price: undefined,
-      category: 1,
+      category: undefined,
     });
 
     alert('Cadastrado com sucesso!')
@@ -87,7 +87,7 @@ const FormProduct = ({ data }) => {
         return item.description === value;
       });
 
-      setProduct({ ...product, [id]: categoryCorrect[0].id });
+      setProduct({ ...product, [id]: Number(categoryCorrect[0].id) });
     } else {
       setProduct({ ...product, [id]: value });
     }

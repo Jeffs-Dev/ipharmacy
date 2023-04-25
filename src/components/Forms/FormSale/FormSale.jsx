@@ -6,83 +6,74 @@ import { useNavigate } from "react-router-dom";
 import { DataRoutesContext } from "../../../context/DataRoutes";
 
 const FormSale = ({ data }) => {
-
   const navigate = useNavigate();
   const { pathname } = useContext(DataRoutesContext);
   const endpointID = pathname.slice(-1);
 
   const [verify, setVerify] = useState(true);
 
-  const { sale: sales, product, setRender, render } = useContext(DataApiContext);
+  const {
+    sale: sales,
+    product,
+    setRender,
+    render,
+  } = useContext(DataApiContext);
 
   const [sale, setSale] = useState({
     description: "",
     take: undefined,
     pay: undefined,
-    product: product[0].id
+    product: null,
   });
 
+  useEffect(() => {
+    if (pathname.includes("/data")) {
+      setVerify(false);
 
-    useEffect(() => {
- 
-     if (pathname.includes("/data")) {
- 
-       setVerify(false);
- 
-       const { description, take , pay, product:productID } = data[0];
- 
-       setSale({
-         description: description,
-         take: Number(take),
-         pay: Number(pay),
-         product: productID
-       })
- 
-     } 
- 
-   }, []) 
+      const { description, take, pay, product: productID } = data[0];
 
-   
-    const updateSale = (e) => {
-      e.preventDefault();
-  
-      axios.put(`http://localhost:3001/sale/${endpointID}`, sale);
-  
-      setRender(!render);
-  
       setSale({
-        description: "",
-        take: undefined,
-        pay: undefined,
-        product: undefined
-  
+        description: description,
+        take: Number(take),
+        pay: Number(pay),
+        product: productID,
       });
-      alert('Atualizado com sucesso!')
-      navigate('/');
-    }; 
+    }
+  }, []);
 
+  const updateSale = (e) => {
+    e.preventDefault();
+
+    axios.put(`http://localhost:3001/sale/${endpointID}`, sale);
+
+    setRender(!render);
+
+    setSale({
+      description: "",
+      take: undefined,
+      pay: undefined,
+      product: undefined,
+    });
+    alert("Successfully updated!");
+    navigate("/");
+  };
 
   const postSale = (e) => {
     e.preventDefault();
 
     const { description, take, pay, product: productID } = sale;
 
-
     if (take <= pay) {
-
       alert(
         "The amount to be taken must always be greater than the amount to be paid"
       );
       return;
-
     } else {
-
-
       axios.post(`http://localhost:3001/sale`, {
         description: description,
         take: Number(take),
         pay: Number(pay),
-        product: Number(productID)
+        product: Number(productID),
       });
       setRender(!render);
 
@@ -92,13 +83,13 @@ const FormSale = ({ data }) => {
         description: "",
         take: "",
         pay: "",
-        product: undefined
+        product: undefined,
       });
     }
   };
 
   function setSaleInputs({ target }) {
-    console.log(target.value)
+    console.log(target.value);
     const { id, value } = target;
 
     if (id === "product") {
@@ -106,20 +97,17 @@ const FormSale = ({ data }) => {
         return item.title === value;
       });
 
-      setSale({ ...sale, [id]: Number(productCorrect[0].id)});
-
+      setSale({ ...sale, [id]: Number(productCorrect[0].id) });
     } else {
       setSale({ ...sale, [id]: value });
     }
-
   }
 
   return (
     <>
       {product.length >= 1 && product !== undefined ? (
-
         <div className="container">
-          <form onSubmit={verify ? postSale : updateSale }>
+          <form onSubmit={verify ? postSale : updateSale}>
             <label> Description </label>
 
             <input
@@ -156,13 +144,22 @@ const FormSale = ({ data }) => {
               })}
             </select>
 
-
             <button> Send </button>
           </form>
         </div>
+      ) : (
+        <>
+          <p>
+            {" "}
+            It is not possible to register a sale before there are products
+          </p>
 
-      ) : 'Loading...'}
-
+          <button onClick={() => navigate("/register/product")}>
+            {" "}
+            Product{" "}
+          </button>
+        </>
+      )}
     </>
   );
 };

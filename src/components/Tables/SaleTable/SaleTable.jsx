@@ -10,7 +10,7 @@ const SaleTable = () => {
 
   return (
     <>
-        {sale !== undefined ? (
+        {sale !== undefined && product !== undefined ? (
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -27,7 +27,9 @@ const SaleTable = () => {
             <TableBody>
               {sale.map(({id, description, take, pay, product:productCode}) => {
 
-              let {title} = product.find((item) => item.id === productCode);
+                console.log(productCode)
+
+              let {title} = product.find((item) => Number(item.id) === Number(productCode));
                 
                 return (
                   <TableRow key={id}>
@@ -58,7 +60,7 @@ const SaleTable = () => {
           </Table>
         </TableContainer>
       ) : (
-        ""
+        "Loading..."
       )}
     </>
   )

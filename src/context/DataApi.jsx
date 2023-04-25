@@ -38,36 +38,42 @@ const DataApiProvider = ({ children }) => {
   
 
   const deleteRegister = async (endpoint, id) => {
+    
     if (endpoint === "category") {
+
+      console.log('deletando uma categoria!')
       let data = await axios
         .get(`http://localhost:3001/${endpoint}/${id}`)
         .then((res) => res.data);
 
-      let verify = await product.some((item) => {
+      let verifyCategory = await product.some((item) => {
         return item.category === data.id;
       });
 
-      if (verify) {
-        alert("Não pode deletar uma categoria que está sendo utilizada");
+      if (verifyCategory) {
+        alert("Cannot delete a category that is being used");
         return;
       } else {
         await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
 
-        alert("Deletado com sucesso! ");
+        alert("Successfully deleted! ");
         setRender(!render);
       }
-    } else {
+    } 
+
+    if (endpoint === "sale"){
+      console.log('Você está deletanto uma sale!!!!')
+    }
+    
+    
+    else {
       await axios.delete(`http://localhost:3001/${endpoint}/${id}`);
 
-      alert("Deletado com sucesso! ");
+      alert("Successfully deleted! ");
       setRender(!render);
     }
   };
 
-
-  const updateRegister = async (endpoint) => {
-    console.log(`PUT - ${endpoint}`)
-  }
 
 
   return (
@@ -81,8 +87,7 @@ const DataApiProvider = ({ children }) => {
           sale,
           render,
           setRender,
-          deleteRegister,
-          updateRegister,
+          deleteRegister
         }}
       >
         {children}
