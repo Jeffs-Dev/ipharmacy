@@ -1,6 +1,12 @@
-# Project name...
+# Product V2
 
-This project ...............
+### Knowledge used
+
+* REST - Axios
+* React Concepts
+* Regular Expressions (Regex)
+* Relationship of different tables and forms
+* Responsive Design
 
 ## Available Scripts
 
@@ -13,5 +19,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+### `npm run server`
+
+Runs the script to fake backend.\
+
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+
+
 
 
