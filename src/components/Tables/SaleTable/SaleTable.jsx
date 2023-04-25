@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const SaleTable = () => {
 
-    const { sale, deleteRegister } = useContext(DataApiContext);
+    const { sale, deleteRegister, product } = useContext(DataApiContext);
 
 
   return (
@@ -16,6 +16,7 @@ const SaleTable = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center"> ID </TableCell>
+                <TableCell align="center">Product&nbsp;</TableCell>
                 <TableCell align="center">Description&nbsp;</TableCell>
                 <TableCell align="center">Take</TableCell>
                 <TableCell align="center">Pay</TableCell>
@@ -24,12 +25,14 @@ const SaleTable = () => {
             </TableHead>
 
             <TableBody>
-              {sale.map(({id, description, take, pay}) => {
+              {sale.map(({id, description, take, pay, product:productCode}) => {
+
+              let {title} = product.find((item) => item.id === productCode);
                 
                 return (
                   <TableRow key={id}>
                     <TableCell align="center">{id}</TableCell>
-               
+                    <TableCell align="center">{title}</TableCell>
                     <TableCell align="center">{description}</TableCell>
                     <TableCell align="center">{take}</TableCell>
                     <TableCell align="center">{pay}</TableCell>
