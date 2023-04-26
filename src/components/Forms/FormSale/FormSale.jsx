@@ -12,18 +12,13 @@ const FormSale = ({ data }) => {
 
   const [verify, setVerify] = useState(true);
 
-  const {
-    sale: sales,
-    product,
-    setRender,
-    render,
-  } = useContext(DataApiContext);
+  const {sale: sales, product, setRender, render} = useContext(DataApiContext);
 
   const [sale, setSale] = useState({
     description: "",
     take: undefined,
     pay: undefined,
-    product: null,
+    product: product.length <= 1 ? undefined : product[0].id,
   });
 
   useEffect(() => {

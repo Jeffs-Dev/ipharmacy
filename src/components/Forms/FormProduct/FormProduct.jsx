@@ -14,8 +14,9 @@ const FormProduct = ({ data }) => {
     title: "",
     description: "",
     price: undefined,
-    category: undefined,
+    category: category.length <= 0 ? undefined :  category[0].id,
   });
+
 
   const navigate = useNavigate();
   const { pathname } = useContext(DataRoutesContext);
