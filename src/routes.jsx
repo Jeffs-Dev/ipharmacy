@@ -13,6 +13,7 @@ import FormSeller from "./components/Forms/FormSeller/FormSeller";
 import FormCategory from "./components/Forms/FormCategory/FormCategory";
 import SaleTable from "./components/Tables/SaleTable/SaleTable";
 import FormSale from "./components/Forms/FormSale/FormSale";
+import FormBudget from "./components/Forms/FormBudget/FormBudget";
 import UpdateData from "./components/UpdateData/UpdateData";
 
 const router = createBrowserRouter([
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
           {
             path: '/register/sale',
             element: <FormSale />
+          },
+          {
+            path: '/register/budget',
+            element: <FormBudget />
           }
         ]
       },

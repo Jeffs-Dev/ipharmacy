@@ -18,9 +18,11 @@ const FormSale = ({ data }) => {
     description: "",
     take: undefined,
     pay: undefined,
-    product: product.length <= 1 ? undefined : product[0].id,
+    product: product.length <= 0 ? undefined : product[0].id,
   });
 
+  
+  // If user come from data, get data for update
   useEffect(() => {
     if (pathname.includes("/data")) {
       setEndpointID(regex.exec(pathname).index);

@@ -1,7 +1,52 @@
 {
-  "product": [],
-  "seller": [],
-  "clients": [],
-  "category": [],
-  "sale": []
+  "product": [
+    {
+      "title": "Banana",
+      "description": "...",
+      "price": 5,
+      "category": 1,
+      "id": 1
+    },
+    {
+      "title": "Watermelon",
+      "description": "...",
+      "price": 7,
+      "category": 1,
+      "id": 2
+    }
+  ],
+  "seller": [
+    {
+      "name": "Junior Casas Bahia",
+      "location": "New York City",
+      "id": 1
+    },
+    {
+      "name": "Almeida",
+      "location": "Moc City",
+      "id": 2
+    }
+  ],
+  "clients": [
+    {
+      "name": "Client 1",
+      "email": "kz998164878@gmail.com",
+      "age": 23,
+      "id": 1
+    },
+    {
+      "name": "Joshua",
+      "email": "joshua@test.com",
+      "age": 43,
+      "id": 2
+    }
+  ],
+  "category": [
+    {
+      "description": "Fruit",
+      "id": 1
+    }
+  ],
+  "sale": [],
+  "budget": []
 }

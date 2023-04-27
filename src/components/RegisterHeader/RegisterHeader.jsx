@@ -22,6 +22,9 @@ const RegisterHeader = () => {
           <li>
             <Link to={"/register/sale"}> Sale </Link>
           </li>
+          <li>
+            <Link to={"/register/budget"}> Budget </Link>
+          </li>
         </ul>
       </nav>
     </>
