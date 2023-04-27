@@ -13,6 +13,13 @@
       "price": 7,
       "category": 1,
       "id": 2
+    },
+    {
+      "title": "Lord of Rings",
+      "description": "...",
+      "price": 200,
+      "category": 2,
+      "id": 3
     }
   ],
   "seller": [
@@ -45,6 +52,10 @@
     {
       "description": "Fruit",
       "id": 1
+    },
+    {
+      "description": "Book",
+      "id": 2
     }
   ],
   "sale": [],

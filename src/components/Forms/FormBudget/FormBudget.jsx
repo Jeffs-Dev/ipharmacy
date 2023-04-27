@@ -92,16 +92,19 @@ const FormBudget = () => {
 
         <button className="block" onClick={(e) => {
           e.preventDefault();
-          console.log(budget)
+          console.log(product)
         }}> Send </button>
       </div>
 
       <div>
         <h1 className="text-center"> Products </h1>
         {budget.product.map((item) => {
-          return <li> {item} </li>
+              let productRender = product.find((product) => product.id === item)
+
+              return <li> {` ${productRender.id} - ${productRender.title} - R$ ${Number(productRender.price).toFixed(2)}`}</li>
         })}
-    
+        
+        <p> Valor total: </p>
       </div>
         
       </form>
