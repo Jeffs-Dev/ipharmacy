@@ -40,7 +40,6 @@ const FormBudget = () => {
 
       setBudget({ ...budget, [id]: Number(sellerSelected[0].id) });
 
-    
     }else if(id === "product"){
 
       let productSelected = product.filter((item) => {
@@ -49,13 +48,11 @@ const FormBudget = () => {
     
       setArrProduct(Number(productSelected[0].id))
   
-      //setBudget({ ...budget, [id]: Number(productSelected[0].id) });
-
-
     }else {
       setBudget({ ...budget, [id]: value });
     }
   }
+
 
   return (
     <>
@@ -101,9 +98,11 @@ const FormBudget = () => {
 
       <div>
         <h1 className="text-center"> Products </h1>
+        {budget.product.map((item) => {
+          return <li> {item} </li>
+        })}
+    
       </div>
-       
-
         
       </form>
     </>
