@@ -58,6 +58,21 @@
       "id": 2
     }
   ],
-  "sale": [],
+  "sale": [
+    {
+      "description": "Take 2 pay 1",
+      "take": 2,
+      "pay": 1,
+      "product": 3,
+      "id": 1
+    },
+    {
+      "description": "Take 2 pay 1",
+      "take": 2,
+      "pay": 1,
+      "product": 2,
+      "id": 2
+    }
+  ],
   "budget": []
 }

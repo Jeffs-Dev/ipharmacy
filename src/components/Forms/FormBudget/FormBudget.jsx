@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
 
 const FormBudget = () => {
-  const { client, seller, product } = useContext(DataApiContext);
+  const { client, seller, product, sale } = useContext(DataApiContext);
 
   const [budget, setBudget] = useState({
     seller: seller.length <= 0 ? undefined : seller[0].id,
