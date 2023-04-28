@@ -10,8 +10,13 @@ const FormBudget = () => {
     product: [],
   });
 
-  const [arrProduct, setArrProduct] = useState(product.length <= 0 ? [] : product[0].id);
+  const [arrProduct, setArrProduct] = useState({
+        product: product[0].id,
+        price: product[0].price,
+        title: product[0].title
+  });
 
+ 
   function setBudgetInputs({ target }) {
     const { id, value } = target;
 
@@ -46,7 +51,11 @@ const FormBudget = () => {
         return item.title === value;
       });
     
-      setArrProduct(Number(productSelected[0].id))
+      setArrProduct({
+        title: productSelected[0].title,
+        price: Number(productSelected[0].price),
+        product: Number(productSelected[0].id)
+      })
   
     }else {
       setBudget({ ...budget, [id]: value });
@@ -92,19 +101,21 @@ const FormBudget = () => {
 
         <button className="block" onClick={(e) => {
           e.preventDefault();
-          console.log(product)
+          console.log(budget)
         }}> Send </button>
       </div>
 
       <div>
         <h1 className="text-center"> Products </h1>
         {budget.product.map((item) => {
-              let productRender = product.find((product) => product.id === item)
+              let productRender = product.find((product) => product.id === item.product)
 
               return <li> {` ${productRender.id} - ${productRender.title} - R$ ${Number(productRender.price).toFixed(2)}`}</li>
         })}
         
-        <p> Valor total: </p>
+      
+
+        <p> Valor total: R$ {budget.product.reduce((acc, item) => acc + item.price, 0)}  </p>
       </div>
         
       </form>
