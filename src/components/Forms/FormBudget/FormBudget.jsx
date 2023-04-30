@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
+import { useEffect } from "react";
 
 const FormBudget = () => {
   const { client, seller, product, sale } = useContext(DataApiContext);
@@ -61,6 +62,47 @@ const FormBudget = () => {
       setBudget({ ...budget, [id]: value });
     }
   }
+
+
+  const [discount, setDiscount] = useState([]);
+
+
+
+  useEffect(() => {
+
+    const productPromos = sale.map((sale) => sale.product);
+
+    productPromos.map((productPromo) => {
+
+      if (budget.product.length > 0) {
+        let verify = budget.product.some((item) => item.product === productPromo);
+
+        /* Rule discount apply? if verify === true -> yes*/
+
+        if (verify) {
+
+          const { take, pay, product: productID } = sale.find((item) => item.product === productPromo);
+
+          console.log(`Take ${take} and Pay ${pay} of product ${productID}`);
+
+          console.log(budget.product)
+
+          //Falta apenas agora verificar a quantidade total de produtos que possuam o código productID
+          // E aplicar as regras de desconto baseadas no take and pay 
+
+
+
+        }
+      }
+
+    })
+
+
+
+  }, [budget.product]);
+
+
+
 
 
   return (

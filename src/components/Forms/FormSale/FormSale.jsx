@@ -16,8 +16,8 @@ const FormSale = ({ data }) => {
 
   const [sale, setSale] = useState({
     description: "",
-    take: undefined,
-    pay: undefined,
+    take: '',
+    pay: '',
     product: product.length <= 0 ? undefined : product[0].id,
   });
 
@@ -108,7 +108,7 @@ const FormSale = ({ data }) => {
           <form onSubmit={verify ? postSale : updateSale}>
             <label> Description </label>
 
-            <input
+            <inputz
               value={sale.description}
               id="description"
               type="text"
