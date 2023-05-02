@@ -108,7 +108,7 @@ const FormSale = ({ data }) => {
           <form onSubmit={verify ? postSale : updateSale}>
             <label> Description </label>
 
-            <inputz
+            <input
               value={sale.description}
               id="description"
               type="text"
