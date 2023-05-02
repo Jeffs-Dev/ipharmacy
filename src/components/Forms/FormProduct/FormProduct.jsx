@@ -59,15 +59,17 @@ const FormProduct = ({ data }) => {
 
   const updateProduct = (e) => {
     e.preventDefault();
+    product.price = Number(product.price);
 
     axios.put(`http://localhost:3001/product/${endpointID}`, product);
+
 
     setRender(!render);
 
     setProduct({
       title: "",
       description: "",
-      price: undefined,
+      price: '',
       category: 1,
     });
     alert("Successfully updated!");
@@ -112,7 +114,7 @@ const FormProduct = ({ data }) => {
 
             <label> Price </label>
             <input
-              value={Number(product.price)}
+              value={product.price}
               id="price"
               type="number"
               required={true}
