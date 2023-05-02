@@ -36,12 +36,6 @@
   ],
   "clients": [
     {
-      "name": "Client 1",
-      "email": "kz998164878@gmail.com",
-      "age": 23,
-      "id": 1
-    },
-    {
       "name": "Joshua",
       "email": "joshua@test.com",
       "age": 43,
@@ -75,32 +69,10 @@
     }
   ],
   "budget": [
+    
     {
       "seller": 1,
-      "client": 1,
-      "product": [
-        {
-          "title": "Watermelon",
-          "price": 7,
-          "product": 2
-        },
-        {
-          "title": "Watermelon",
-          "price": 7,
-          "product": 2
-        },
-        {
-          "title": "Watermelon",
-          "price": 7,
-          "product": 2
-        }
-      ],
-      "amount": 14,
-      "id": 2
-    },
-    {
-      "seller": 1,
-      "client": 1,
+      "client": 2,
       "product": [
         {
           "product": 1,

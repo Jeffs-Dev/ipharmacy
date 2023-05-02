@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 const BudgetTable = () => {
 
-    const {budget, deleteRegister} = useContext(DataApiContext);
+    const {budget, deleteRegister, seller, client} = useContext(DataApiContext);
 
 
 
   return (
     <>
 
-    {budget !== undefined ? (
+    {budget !== undefined && seller !== undefined && client !== undefined ? (
         <>
         <TableContainer component={Paper}>
         <Table>
@@ -30,12 +30,17 @@ const BudgetTable = () => {
 
             <TableBody>
               {budget.map((row) => {
+
+                let sellerPerson = seller.find((seller) => seller.id === row.seller);
+                
+                let clientPerson = client.find((client) => client.id === row.client);
+
                 
                 return (
                   <TableRow key={row.id}>
                     <TableCell align="center">{row.id}</TableCell>
-                    <TableCell align="center">{row.client}</TableCell>
-                    <TableCell align="center">{row.seller}</TableCell>
+                    <TableCell align="center">{clientPerson.name}</TableCell>
+                    <TableCell align="center">{sellerPerson.name}</TableCell>
                     <TableCell align="center">Products</TableCell>
                     <TableCell align="center">{`R$ ${row.amount}`}</TableCell>
              

@@ -27,6 +27,8 @@ const ProductTable = () => {
             <TableBody>
               {product.map((row) => {
                 let categoryDescription = category.find((item) => item.id === row.category);
+
+                
                 return (
                   <TableRow key={row.id}>
                     <TableCell align="center">{row.id}</TableCell>
