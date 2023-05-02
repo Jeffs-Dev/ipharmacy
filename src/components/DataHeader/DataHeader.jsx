@@ -20,6 +20,9 @@ const DataHeader = () => {
           <li>
             <Link to={"/data/sale"}> Sale </Link>
           </li>
+          <li>
+            <Link to={"/data/budget"}> Budget </Link>
+          </li>
         </ul>
       </nav>
     </>

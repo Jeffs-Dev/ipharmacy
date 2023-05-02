@@ -15,6 +15,7 @@ import SaleTable from "./components/Tables/SaleTable/SaleTable";
 import FormSale from "./components/Forms/FormSale/FormSale";
 import FormBudget from "./components/Forms/FormBudget/FormBudget";
 import UpdateData from "./components/UpdateData/UpdateData";
+import BudgetTable from "./components/Tables/BudgetTable/BudgetTable";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
           {
             path: '/data/sale',
             element: <SaleTable />
+          },
+          {
+            path: '/data/budget',
+            element: <BudgetTable />
           }
         ]
       },
@@ -75,6 +80,11 @@ const router = createBrowserRouter([
 
       {
         path: '/data/sale/:id',
+        element: <UpdateData />
+      },
+
+      {
+        path: '/data/budget/:id',
         element: <UpdateData />
       },
 

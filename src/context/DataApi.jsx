@@ -9,6 +9,7 @@ const DataApiProvider = ({ children }) => {
   const [client, setClient] = useState(null);
   const [category, setCategory] = useState(null);
   const [sale, setSale] = useState(null);
+  const [budget, setBudget] = useState(null);
 
   const [render, setRender] = useState(false);
 
@@ -32,6 +33,10 @@ const DataApiProvider = ({ children }) => {
       axios
       .get(`http://localhost:3001/sale`)
       .then((res) => setSale(res.data));
+      
+      axios
+      .get(`http://localhost:3001/budget`)
+      .then((res) => setBudget(res.data));
 
   }, [render]);
 
@@ -81,6 +86,7 @@ const DataApiProvider = ({ children }) => {
           client,
           category,
           sale,
+          budget,
           render,
           setRender,
           deleteRegister
