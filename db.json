@@ -67,9 +67,9 @@
       "id": 2
     },
     {
-      "description": "Take 2 pay 1",
-      "take": 2,
-      "pay": 1,
+      "description": "Take 3 pay 2",
+      "take": 3,
+      "pay": 2,
       "product": 1,
       "id": 3
     }

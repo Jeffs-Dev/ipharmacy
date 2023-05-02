@@ -17,6 +17,8 @@ const FormBudget = () => {
     title: product[0].title
   });
 
+  const [discount, setDiscount] = useState(null);
+
 
 
 
@@ -67,57 +69,46 @@ const FormBudget = () => {
 
 
 
-
   useEffect(() => {
+    const productsInSales = sale.map((sale) => sale.product);
 
-    const productPromos = sale.map((sale) => sale.product);
+    const arr = [];
 
-    const arrProductsToApplyDiscount = [];
+    const arrDiscount = [];
 
-    budget.product.map((item) => {
-
-      if (productPromos.includes(item.product)) {
-
-        if (!arrProductsToApplyDiscount.includes(item.title)) {
-
-          arrProductsToApplyDiscount.push(item);
-
+    productsInSales.map((productSale) => {
+      const arrProduct = budget.product.filter((item) => {
+        if (item.product === productSale) {
+          return item;
         }
+      });
 
-      }
+      arr.push(arrProduct);
+    });
 
-    })
-
-
-    if (arrProductsToApplyDiscount.length > 0) {
-
-      let prodDuplicate;
-
-      const estouPuto = arrProductsToApplyDiscount.map((item) => {
-
-        const arrSeparate = arrProductsToApplyDiscount.filter((prod) => {
-
-          if (prodDuplicate === prod.product) {
-            return;
-          } else if (prod.product === item.product) {
-
-            prodDuplicate = prod.product;
-            return item
+    arr.map((arrToApply) => {
+      if (arrToApply.length > 0) {
+        const saleToApply = sale.filter((sale) => {
+          if (sale.product === arrToApply[0].product) {
+            return sale;
           }
+        });
 
-        })
+        if (arrToApply.length >= saleToApply[0].take) {
+          let count = Number(
+            Math.floor(arrToApply.length / saleToApply[0].take)
+          );
 
-        return arrSeparate;
+          let amountValueDiscount = Number(count * arrToApply[0].price);
 
-      })
+          arrDiscount.push(amountValueDiscount);
+        }
+      }
+    });
 
+    const totalValue = arrDiscount.reduce((acc, item) => acc + item, 0);
 
-      console.log(estouPuto)
-
-    }
-
-
-
+    setDiscount(totalValue);
 
   }, [budget.product]);
 
@@ -176,7 +167,8 @@ const FormBudget = () => {
             return <li key={product.id}> {` ${productRender.id} - ${productRender.title} - R$ ${Number(productRender.price).toFixed(2)}`}</li>
           })}
 
-          <p> Valor total: R$ {budget.product.reduce((acc, item) => acc + item.price, 0)}  </p>
+
+          <p> Valor total: R$ {budget.product.reduce((acc, item) => acc + item.price, 0) - discount}  </p>
         </div>
 
       </form>
