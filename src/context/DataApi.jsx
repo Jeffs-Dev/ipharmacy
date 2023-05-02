@@ -36,12 +36,10 @@ const DataApiProvider = ({ children }) => {
   }, [render]);
 
   
-
   const deleteRegister = async (endpoint, id) => {
     
     if (endpoint === "category") {
 
-      console.log('deletando uma categoria!')
       let data = await axios
         .get(`http://localhost:3001/${endpoint}/${id}`)
         .then((res) => res.data);
@@ -73,8 +71,6 @@ const DataApiProvider = ({ children }) => {
       setRender(!render);
     }
   };
-
-
 
   return (
     <>

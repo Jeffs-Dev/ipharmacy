@@ -1,14 +1,18 @@
 import { useContext, useState } from "react";
 import { DataApiContext } from "../../../context/DataApi";
 import { useEffect } from "react";
+import axios from "axios";
 
 const FormBudget = () => {
-  const { client, seller, product, sale } = useContext(DataApiContext);
+  const { client, seller, product, sale, setRender, render } = useContext(DataApiContext);
+  
+  const [verify, setVerify] = useState(true);
 
   const [budget, setBudget] = useState({
     seller: seller.length <= 0 ? undefined : seller[0].id,
     client: client.length <= 0 ? undefined : client[0].id,
     product: [],
+    amount: null
   });
 
   const [arrProduct, setArrProduct] = useState({
@@ -108,7 +112,10 @@ const FormBudget = () => {
 
     const totalValue = arrDiscount.reduce((acc, item) => acc + item, 0);
 
+  
     setDiscount(totalValue);
+
+    budget.amount = budget.product.reduce((acc, item) => acc + item.price, 0) - totalValue;
 
   }, [budget.product]);
 
@@ -116,9 +123,22 @@ const FormBudget = () => {
 
 
 
+  const postBudget = (e) => {
+    e.preventDefault();
+
+    axios.post(`http://localhost:3001/budget`, budget);
+
+    setRender(!render);
+
+    alert('Registered successfully!')
+  
+
+  };
+
+
   return (
     <>
-      <form className="flex justify-center gap-24">
+      <form onSubmit={verify ? postBudget : '' } className="flex justify-center gap-24">
         <div>
           <label> Client </label>
 
@@ -152,10 +172,7 @@ const FormBudget = () => {
           <br />
           <br />
 
-          <button className="block" onClick={(e) => {
-            e.preventDefault();
-            console.log(budget)
-          }}> Send </button>
+          <button className="block"> Send </button>
         </div>
 
         <div>
@@ -166,7 +183,6 @@ const FormBudget = () => {
 
             return <li key={product.id}> {` ${productRender.id} - ${productRender.title} - R$ ${Number(productRender.price).toFixed(2)}`}</li>
           })}
-
 
           <p> Valor total: R$ {budget.product.reduce((acc, item) => acc + item.price, 0) - discount}  </p>
         </div>

@@ -74,5 +74,42 @@
       "id": 3
     }
   ],
-  "budget": []
+  "budget": [
+    {
+      "seller": 1,
+      "client": 1,
+      "product": [
+        {
+          "title": "Watermelon",
+          "price": 7,
+          "product": 2
+        }
+      ],
+      "amount": 7,
+      "id": 1
+    },
+    {
+      "seller": 1,
+      "client": 1,
+      "product": [
+        {
+          "title": "Watermelon",
+          "price": 7,
+          "product": 2
+        },
+        {
+          "title": "Watermelon",
+          "price": 7,
+          "product": 2
+        },
+        {
+          "title": "Watermelon",
+          "price": 7,
+          "product": 2
+        }
+      ],
+      "amount": 14,
+      "id": 2
+    }
+  ]
 }
