@@ -7,6 +7,8 @@ const BudgetTable = () => {
 
     const {budget, deleteRegister, seller, client} = useContext(DataApiContext);
 
+  
+
 
 
   return (
@@ -21,7 +23,7 @@ const BudgetTable = () => {
                 <TableCell align="center"> ID </TableCell>
                 <TableCell align="center"> Client </TableCell>
                 <TableCell align="center"> Seller </TableCell>
-                <TableCell align="center"> Products </TableCell>
+                <TableCell align="center"> N° of products </TableCell>
                 <TableCell align="center"> Amount </TableCell>
       
                 <TableCell align="center">Action</TableCell>
@@ -35,13 +37,15 @@ const BudgetTable = () => {
                 
                 let clientPerson = client.find((client) => client.id === row.client);
 
+
+
                 
                 return (
                   <TableRow key={row.id}>
                     <TableCell align="center">{row.id}</TableCell>
                     <TableCell align="center">{clientPerson.name}</TableCell>
                     <TableCell align="center">{sellerPerson.name}</TableCell>
-                    <TableCell align="center">Products</TableCell>
+                    <TableCell align="center"> {row.product.length}</TableCell>
                     <TableCell align="center">{`R$ ${row.amount}`}</TableCell>
              
                
